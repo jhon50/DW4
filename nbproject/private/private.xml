@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/logica/produto/Adiciona.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/web/WEB-INF/views/index.jsp</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/logica/produto/Remove.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/logica/produto/Lista.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/jdbc/ConnectionFactory.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/filter/FiltroConexao.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/dao/ProdutoDAO.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/servlet/ControllerProduto.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/web/WEB-INF/views/header.jsp</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/logica/produto/Novo.java</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/web/WEB-INF/views/formulario-produto.jsp</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/web/WEB-INF/views/lista-produtos.jsp</file>
+            <file>file:/D:/Users/Bruno%20Dutra/Documents/NetBeansProjects/Trabalho4/src/java/dw/ecommerce/servlet/ControllerUsuario.java</file>
+        </group>
+    </open-files>
+</project-private>
