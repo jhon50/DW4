@@ -23,6 +23,7 @@ public class Lista implements Logica {
 
         Connection connection = (Connection) request.getAttribute("conexao");
         String categoria = request.getParameter("categoria");
+        
         if (categoria != null) {
             List<Produto> produtos = new ProdutoDAO(connection).getListaCategoria(categoria);
             request.setAttribute("produtos", produtos);
