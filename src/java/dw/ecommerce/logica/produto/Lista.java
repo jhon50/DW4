@@ -22,26 +22,24 @@ public class Lista implements Logica {
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         Connection connection = (Connection) request.getAttribute("conexao");
-        String categoria = request.getParameter("categoria");
-        
-        if (categoria != null) {
-            List<Produto> produtos = new ProdutoDAO(connection).getListaCategoria(categoria);
-            request.setAttribute("produtos", produtos);
-            return "/WEB-INF/views/lista-produtos.jsp";
-        } else {
-            String nomeProduto = request.getParameter("nomeProduto");
-            if (nomeProduto != null) {
-                List<Produto> produtos = new ProdutoDAO(connection).getListaPorNome(nomeProduto);
-                request.setAttribute("produtos", produtos);
-                return "/WEB-INF/views/lista-produtos.jsp";
-            } else {
-                List<Produto> produtos = new ProdutoDAO(connection).getLista();
-                request.setAttribute("produtos", produtos);
-                return "/WEB-INF/views/lista-produtos.jsp";
-            }
 
+        String nomeProduto = request.getParameter("nomeProduto");
+        String categoria = request.getParameter("categoria");
+
+        List<Produto> produtos = new ProdutoDAO(connection).getLista();
+
+        if (categoria != null) {
+            produtos = new ProdutoDAO(connection).getListaCategoria(categoria);
         }
 
+        if (nomeProduto != null) {
+            produtos = new ProdutoDAO(connection).getListaPorNome(nomeProduto);
+        }
+
+        request.setAttribute("produtos", produtos);
+        return "/WEB-INF/views/lista-produtos.jsp";
     }
 
 }
+
+
