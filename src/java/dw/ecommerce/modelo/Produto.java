@@ -16,6 +16,14 @@ public class Produto {
     private String nome;
     private String descricao;
     private double preco;
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
     
     public Produto(){
         
@@ -29,13 +37,6 @@ public class Produto {
         this.id = id;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 
     public String getNome() {
         return nome;
