@@ -1,7 +1,6 @@
 //CRUD CLIENTE
 package dw.ecommerce.dao;
 
-import dw.ecommerce.jdbc.ConnectionFactory;
 import dw.ecommerce.modelo.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -2,7 +2,6 @@
 package dw.ecommerce.dao;
 
 import dw.ecommerce.modelo.Administrador;
-import dw.ecommerce.modelo.Categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

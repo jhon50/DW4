@@ -1,10 +1,7 @@
 //CRUD COMPRAS
 package dw.ecommerce.dao;
 
-import dw.ecommerce.modelo.Administrador;
-import dw.ecommerce.modelo.Cliente;
 import dw.ecommerce.modelo.Compra;
-import dw.ecommerce.modelo.Produto;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
