@@ -15,10 +15,10 @@
         <h1>Novo Produto</h1>
         <form action="produto?logica=Adiciona" method="post">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" /><br/>
+            <input type="text" id="nome" name="p_nome" /><br/>
             
             <label for="categoria">Categoria:</label>
-            <select id="categoria" name="categoria">
+            <select id="categoria" name="p_categoria">
                 <option>Eletrodomesticos</option>
                 <option>Eletroportaveis</option>
                 <option>Informatica</option>
@@ -26,10 +26,10 @@
             </select><br/>
             
             <label for="descricao">Descrição:</label><br/>
-            <textarea id="descricao" name="descricao" rows="5" cols="100"></textarea><br/>
+            <textarea id="descricao" name="p_descricao" rows="5" cols="100"></textarea><br/>
             
             <label for="preco">Preço:</label>
-            <input type="text" id="preco" name="preco" /><br/>
+            <input type="text" id="preco" name="p_preco" /><br/>
             
             <input type="submit" value="Gravar" />
         </form>
