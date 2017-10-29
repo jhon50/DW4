@@ -18,5 +18,5 @@ public class Novo implements Logica{
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
         return "WEB-INF/views/formulario-produto.jsp";
     }
-    
+
 }
