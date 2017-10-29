@@ -20,7 +20,7 @@ public class ProdutoDAO {
     public ProdutoDAO(Connection connection){
         this.connection = connection;
     }
-    public void adiciona(Produto produto) {
+    public boolean adiciona(Produto produto) {
 
         String sql = "insert into produtos(categoria,nome,descricao,preco) values(?,?,?,?)";
 
@@ -34,14 +34,14 @@ public class ProdutoDAO {
 
             stmt.execute();
             stmt.close();
-
+            return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    public void atualiza(Produto produto) {
+    public boolean atualiza(Produto produto) {
 
         String sql = "update produtos set categoria=?, nome=?, descricao=?, preco=? where id=?";
 
@@ -55,6 +55,7 @@ public class ProdutoDAO {
 
             stmt.execute();
             stmt.close();
+            return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

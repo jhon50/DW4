@@ -19,18 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Adiciona implements Logica {
 
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        Produto produto = new Produto();
-        produto.setNome(request.getParameter("p_nome"));
-        produto.setCategoria(request.getParameter("p_categoria"));
-        produto.setDescricao(request.getParameter("p_descricao"));
-        produto.setPreco(Double.parseDouble(request.getParameter("p_preco")));
-        
-        Connection connection  = (Connection) request.getAttribute("conexao");
-        ProdutoDAO dao = new ProdutoDAO(connection);
-        dao.adiciona(produto);
-  
-        return "produto?logica=Lista";
+        return Produto.add(request)? "produto?logica=Lista" : "index";
     }
 
 }
