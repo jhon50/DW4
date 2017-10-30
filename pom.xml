@@ -39,14 +39,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		
+	
 	</dependencies>
 	<build>
 		<finalName>LojaDW</finalName>
