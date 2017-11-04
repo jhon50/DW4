@@ -81,7 +81,7 @@ public class AdministradorDAO {
         try {
             List<Administrador> administradores = new ArrayList<Administrador>();
             PreparedStatement stmt;
-            stmt = this.connection.prepareStatement("select * from administradores");
+            stmt = this.connection.prepareStatement("select * from administradores order by nome");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
