@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>LojaDW | Formulário Categoria</title>
+<title>Insert title here</title>
 </head>
 <body>
-            <form action="Categoria" method="post">
-	            <label for="nome">Nome:</label>
-	            <input type="text" id="nome" name="nome"/>
-	            <br/>
-	            <input type="submit" value="Adicionar" />
-            </form>
+<h1>Categoria ${c_nome} adicionada com sucesso!</h1>
+<a href="Categoria">Voltar para lista de categorias</a>
 </body>
 </html>

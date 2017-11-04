@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h1>Categorias</h1>
+	<a href="NovaCategoria">Nova Categoria</a>
 	<table>
 		<tr>
 			<th>ID</th>
