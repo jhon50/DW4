@@ -22,9 +22,23 @@ public class ProdutoServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			Connection connection = (Connection) request.getAttribute("conexao");
 		
-		
-		
+			Produto produto = new Produto();
+			produto.setCategoria(request.getParameter("categoria"));
+			produto.setNome(request.getParameter("nome"));
+			produto.setDescricao(request.getParameter("descricao"));
+			produto.setPreco(Double.parseDouble(request.getParameter("preco")));
+			
+			new ProdutoDAO(connection).adiciona(produto);
+			
+		} catch (Exception e) {
+			System.out.println("Erro ao adicionar produto!");
+		} finally {
+			request.setAttribute("p_nome", request.getParameter("nome"));
+			request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/adicionado.jsp").forward(request, response);
+		}
 	}
 	
 	@Override
