@@ -17,17 +17,17 @@
 	<a href="NovoProduto">Novo Produto</a>
 	<table>
 		<tr>
-			<th>ID</th>
-			<th>Categoria</th>
+			<th>Selecionar</th>
 			<th>Nome</th>
+			<th>Categoria</th>
 			<th>Descrição</th>
 			<th>Preço</th>
 		</tr>
 		<c:forEach var="produto" items="${produtos}">
 			<tr>
-				<td>${produto.id}</td>
+				<td><input type="radio" id="${produto.id}" name="option" /></td>
+				<td><label for="${produto.id}">${produto.nome}</label></td>
 				<td>${produto.categoria}</td>
-				<td>${produto.nome}</td>
 				<td>${produto.descricao}</td>
 				<td>${produto.preco}</td>
 			</tr>

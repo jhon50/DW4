@@ -15,16 +15,25 @@
 	<h1>Categorias</h1>
 	<a href="NovaCategoria">Nova Categoria</a>
 	<table>
-		<tr>
-			<th>ID</th>
-			<th>Nome</th>
-		</tr>
-		<c:forEach var="categoria" items="${categorias}" >
+		<thead>
 			<tr>
-				<td>${categoria.id}</td>
-				<td>${categoria.nome}</td>
+				<th>Selecionar</th>
+				<th>Nome</th>
+
 			</tr>
-		</c:forEach>
+		</thead>
+		<tbody>
+			<form>
+				<c:forEach var="categoria" items="${categorias}">
+					<tr>
+						<td><input type="radio" id="${categoria.id}" name="option" />
+						</td>
+						<td><label for="${categoria.id}">${categoria.nome}</label></td>
+
+					</tr>
+				</c:forEach>
+			</form>
+		</tbody>
 	</table>
 
 </body>

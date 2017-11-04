@@ -17,17 +17,19 @@
 	<a href="NovoAdmin">Novo Administrador</a>
 	<table>
 		<tr>
-			<th>ID</th>
+			<th>Selecionar</th>
 			<th>Nome</th>
 			<th>Email</th>
 			<th>Senha</th>
+			
 		</tr>
 		<c:forEach var="administrador" items="${administradores}" >
 			<tr>
-				<td>${administrador.id}</td>
-				<td>${administrador.nome}</td>
+				<td><input type="radio" id="${administrador.id}" name="option" /></td>
+				<td><label for="${administrador.id}">${administrador.nome}</label></td>
 				<td>${administrador.email}</td>
 				<td>${administrador.senha}</td>
+				
 			</tr>
 		</c:forEach>
 	</table>
