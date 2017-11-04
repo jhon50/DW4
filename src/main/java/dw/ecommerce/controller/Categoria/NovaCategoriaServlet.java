@@ -1,4 +1,4 @@
-package dw.ecommerce.controller;
+package dw.ecommerce.controller.Categoria;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

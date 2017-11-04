@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author Bruno Dutra
@@ -21,16 +23,16 @@ public class AdministradorDAO {
         this.connection = connection;
     }
 
-    public void adiciona(Administrador administrador) {
+    public void adiciona(HttpServletRequest request) {
 
         String sql = "insert into administradores(nome, email, senha) values(?,?,?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, administrador.getNome());
-            stmt.setString(2, administrador.getEmail());
-            stmt.setString(3, administrador.getSenha());
+            stmt.setString(1, request.getParameter("nome"));
+            stmt.setString(2, request.getParameter("email"));
+            stmt.setString(3, request.getParameter("senha"));
 
             stmt.execute();
             stmt.close();

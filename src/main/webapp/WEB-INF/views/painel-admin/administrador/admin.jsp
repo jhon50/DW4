@@ -14,6 +14,7 @@
 </head>
 <body>
 	<h1>Administradores</h1>
+	<a href="NovoAdmin">Novo Administrador</a>
 	<table>
 		<tr>
 			<th>ID</th>
@@ -21,7 +22,6 @@
 			<th>Email</th>
 			<th>Senha</th>
 		</tr>
-		<%=request.getAttribute("nome") %>
 		<c:forEach var="administrador" items="${administradores}" >
 			<tr>
 				<td>${administrador.id}</td>

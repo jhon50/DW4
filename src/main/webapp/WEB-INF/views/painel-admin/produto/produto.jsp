@@ -14,6 +14,7 @@
 </head>
 <body>
 	<h1>Produtos</h1>
+	<a href="NovoProduto">Novo Produto</a>
 	<table>
 		<tr>
 			<th>ID</th>

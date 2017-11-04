@@ -15,50 +15,50 @@
 	<h1>Painel de Administração</h1>
 	<ul class="menu">
 		<li>
-			<a href="categoria/categoria.jsp">Categorias</a>
-			<ul>
-				<li><a href="#">Exibir todas</a></li>
-				<li><a href="#">Adicionar</a></li>
-				<li><a href="#">Atualizar</a></li>
-				<li><a href="#">Remover</a></li>
-			</ul>
+			<a href="Categoria">Categorias</a>
+<!-- 			<ul> -->
+<!-- 				<li><a href="#">Exibir todas</a></li> -->
+<!-- 				<li><a href="#">Adicionar</a></li> -->
+<!-- 				<li><a href="#">Atualizar</a></li> -->
+<!-- 				<li><a href="#">Remover</a></li> -->
+<!-- 			</ul> -->
 		</li>
 
 		<li>
 			<a href="cliente/cliente.jsp">Clientes</a>
-			<ul>
-				<li><a href="#">Exibir todos</a></li>
-				<li><a href="#">Adicionar</a></li>
-				<li><a href="#">Atualizar</a></li>
-				<li><a href="#">Remover</a></li>
-			</ul>
+<!-- 			<ul> -->
+<!-- 				<li><a href="#">Exibir todos</a></li> -->
+<!-- 				<li><a href="#">Adicionar</a></li> -->
+<!-- 				<li><a href="#">Atualizar</a></li> -->
+<!-- 				<li><a href="#">Remover</a></li> -->
+<!-- 			</ul> -->
 		</li>
 		<li>
 			<a href="compra/compra.jsp">Compras</a>
-			<ul>
-				<li><a href="#">Exibir todas</a></li>
-				<li><a href="#">Adicionar</a></li>
-				<li><a href="#">Atualizar</a></li>
-				<li><a href="#">Remover</a></li>
-			</ul>
+<!-- 			<ul> -->
+<!-- 				<li><a href="#">Exibir todas</a></li> -->
+<!-- 				<li><a href="#">Adicionar</a></li> -->
+<!-- 				<li><a href="#">Atualizar</a></li> -->
+<!-- 				<li><a href="#">Remover</a></li> -->
+<!-- 			</ul> -->
 		</li>
 		<li>
-			<a href="produto/produto.jsp">Produtos</a>
-			<ul>
-				<li><a href="#">Exibir todos</a></li>
-				<li><a href="#">Adicionar</a></li>
-				<li><a href="#">Atualizar</a></li>
-				<li><a href="#">Remover</a></li>
-			</ul>
+			<a href="Produto">Produtos</a>
+<!-- 			<ul> -->
+<!-- 				<li><a href="#">Exibir todos</a></li> -->
+<!-- 				<li><a href="#">Adicionar</a></li> -->
+<!-- 				<li><a href="#">Atualizar</a></li> -->
+<!-- 				<li><a href="#">Remover</a></li> -->
+<!-- 			</ul> -->
 		</li>
 		<li>
-			<a href="administrador/admin.jsp">Administradores</a>
-			<ul>
-				<li><a href="#">Exibir todos</a></li>
-				<li><a href="#">Adicionar</a></li>
-				<li><a href="#">Atualizar</a></li>
-				<li><a href="#">Remover</a></li>
-			</ul>
+			<a href="Admin">Administradores</a>
+<!-- 			<ul> -->
+<!-- 				<li><a href="#">Exibir todos</a></li> -->
+<!-- 				<li><a href="#">Adicionar</a></li> -->
+<!-- 				<li><a href="#">Atualizar</a></li> -->
+<!-- 				<li><a href="#">Remover</a></li> -->
+<!-- 			</ul> -->
 		</li>
 	</ul>
 </body>

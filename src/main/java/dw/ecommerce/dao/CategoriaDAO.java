@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author Bruno Dutra
@@ -21,14 +23,14 @@ public class CategoriaDAO {
         this.connection = connection;
     }
 
-    public void adiciona(Categoria categoria) {
+    public void adiciona(HttpServletRequest request) {
         
         String sql = "insert into categorias(nome) values(?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, categoria.getNome());
+            stmt.setString(1, request.getParameter("nome").toUpperCase());
 
             stmt.execute();
             stmt.close();

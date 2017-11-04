@@ -6,20 +6,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LojaDW | Formulário Administrador</title>
 </head>
+<script type="text/javascript">
+
+function validarSenha(){
+	
+	senha = document.form_adm.senha.value;
+	rep_senha = document.form_adm.rep_senha.value;
+    if (senha != rep_senha){ 
+         alert("SENHAS DIFERENTES!\\nFAVOR DIGITAR SENHAS IGUAIS");
+         return false;
+    }
+    return true;
+}
+
+</script>
 <body>
-            <form action="" method="post">
-	            <label>Nome:</label>
-	            <input type="text" />
-	            
-	            <label>Email:</label>
-	            <input type="text" />
-	            
-	            <label>Senha:</label>
-	            <input type="password" />
-	            
-	            <label>Repetir a senha:</label>
-	            <input type="password" />
-	            
+            <form action="Admin" method="post" id="form_adm" name="form_adm" onsubmit="return validarSenha();" >
+	            <label for="nome">Nome:</label>
+	            <input type="text" id="nome" name="nome" />
+	            <br/>
+	            <label for="email">Email:</label>
+	            <input type="text" id="email" name="email" />
+	            <br/>
+	            <label for="senha">Senha:</label>
+	            <input type="password" id="senha" name="senha"  />
+	            <br/>
+	            <label for="rep_senha">Repetir a senha:</label>
+	            <input type="password" id="rep_senha" name="rep_senha" />
+	            <br/>
 	            <input type="submit" value="Adicionar" />
             </form>
 </body>

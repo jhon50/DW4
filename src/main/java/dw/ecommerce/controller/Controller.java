@@ -1,5 +1,6 @@
 package dw.ecommerce.controller;
 
+import java.io.Console;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,6 @@ public class Controller extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/index.jsp").forward(request, response);
 		
 	}

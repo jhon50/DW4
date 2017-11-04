@@ -1,4 +1,4 @@
-package dw.ecommerce.controller;
+package dw.ecommerce.controller.Produto;
 
 import java.io.IOException;
 import java.sql.Connection;

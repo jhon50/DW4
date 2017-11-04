@@ -1,4 +1,4 @@
-package dw.ecommerce.controller;
+package dw.ecommerce.controller.Categoria;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -21,15 +21,27 @@ import dw.ecommerce.modelo.Categoria;
 public class CategoriaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		Connection connection = (Connection) request.getAttribute("conexao");
-		
+		new CategoriaDAO(connection).adiciona(request);
+		request.setAttribute("c_nome", request.getParameter("nome"));
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/adicionado.jsp").forward(request, response);
+
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Connection connection = (Connection) request.getAttribute("conexao");
+
 		List<Categoria> categorias = new CategoriaDAO(connection).getLista();
 		request.setAttribute("categorias", categorias);
-		
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/categoria.jsp").forward(request, response);
+
 	}
 
 }

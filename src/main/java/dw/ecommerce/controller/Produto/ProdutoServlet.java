@@ -1,4 +1,4 @@
-package dw.ecommerce.controller;
+package dw.ecommerce.controller.Produto;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -24,14 +24,8 @@ public class ProdutoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			Connection connection = (Connection) request.getAttribute("conexao");
-		
-			Produto produto = new Produto();
-			produto.setCategoria(request.getParameter("categoria"));
-			produto.setNome(request.getParameter("nome"));
-			produto.setDescricao(request.getParameter("descricao"));
-			produto.setPreco(Double.parseDouble(request.getParameter("preco")));
-			
-			new ProdutoDAO(connection).adiciona(produto);
+					
+			new ProdutoDAO(connection).adiciona(request);
 			
 		} catch (Exception e) {
 			System.out.println("Erro ao adicionar produto!");
