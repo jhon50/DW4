@@ -77,7 +77,7 @@ public class CategoriaDAO {
         try {
             List<Categoria> categorias = new ArrayList<Categoria>();
             PreparedStatement stmt;
-            stmt = this.connection.prepareStatement("select * from categorias");
+            stmt = this.connection.prepareStatement("select * from categorias order by nome");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
