@@ -34,10 +34,8 @@ public class FiltroConexao implements Filter {
 		try {
 			Connection connection = new ConnectionFactory().getConnection();
 			request.setAttribute("conexao", connection);
-			System.out.println("Abrindo Conexão PostgresSQL");
 			chain.doFilter(request, response);
 			connection.close();
-			System.out.println("Fechando Conexão PostgresSQL");
 		} catch (ClassNotFoundException e) {
 			throw new ServletException(e);
 		} catch (SQLException e) {

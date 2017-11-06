@@ -1,6 +1,7 @@
 //CRUD CATEGORIA
 package dw.ecommerce.dao;
 
+import dw.ecommerce.modelo.Administrador;
 import dw.ecommerce.modelo.Categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -100,5 +101,23 @@ public class CategoriaDAO {
             throw new RuntimeException(e);
         }
     }
+    
+    public Categoria getID(Categoria categoria) {
+		try {
+			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM categorias WHERE ID = ? ");
+			sql.setFloat(1, categoria.getId());
+			ResultSet rs = sql.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					categoria.setNome(rs.getString("nome"));
+					
+				}
+			}
+			return categoria;
+
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
 
 }

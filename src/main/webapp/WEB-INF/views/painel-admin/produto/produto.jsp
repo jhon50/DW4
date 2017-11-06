@@ -17,19 +17,25 @@
 	<a href="NovoProduto">Novo Produto</a>
 	<table>
 		<tr>
-			<th>Selecionar</th>
+			<th>ID</th>
 			<th>Nome</th>
 			<th>Categoria</th>
 			<th>Descrição</th>
 			<th>Preço</th>
+			<th>Ações</th>
 		</tr>
 		<c:forEach var="produto" items="${produtos}">
 			<tr>
-				<td><input type="radio" id="${produto.id}" name="option" /></td>
-				<td><label for="${produto.id}">${produto.nome}</label></td>
+				<td>${produto.id}</td>
+				<td>${produto.nome}</td>
 				<td>${produto.categoria}</td>
 				<td>${produto.descricao}</td>
 				<td>${produto.preco}</td>
+				<td>
+					<a href="Visualizar?id=${produto.id}">Visualizar</a>
+					<a href="Editar?id=${produto.id}">Editar</a>
+					<a href="Excluir?id=${produto.id}">Excluir</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

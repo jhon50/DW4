@@ -15,25 +15,21 @@
 	<h1>Categorias</h1>
 	<a href="NovaCategoria">Nova Categoria</a>
 	<table>
-		<thead>
+		<tr>
+
+			<th>ID</th>
+			<th>Nome</th>
+
+		</tr>
+		<c:forEach var="categoria" items="${categorias}">
 			<tr>
-				<th>Selecionar</th>
-				<th>Nome</th>
-
+				<td>${categoria.id}</td>
+				<td>${categoria.nome}</td>
+				<td><a href="Visualizar?id=${categoria.id}">Visualizar</a> <a
+					href="Editar?id=${categoria.id}">Editar</a> <a
+					href="Excluir?id=${categoria.id}">Excluir</a></td>
 			</tr>
-		</thead>
-		<tbody>
-			<form>
-				<c:forEach var="categoria" items="${categorias}">
-					<tr>
-						<td><input type="radio" id="${categoria.id}" name="option" />
-						</td>
-						<td><label for="${categoria.id}">${categoria.nome}</label></td>
-
-					</tr>
-				</c:forEach>
-			</form>
-		</tbody>
+		</c:forEach>
 	</table>
 
 </body>
