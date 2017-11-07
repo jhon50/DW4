@@ -7,7 +7,7 @@
 </head>
 <body>
 	<form action="ExcluirCliente" method="post">
-		<input type="hidden" id="id" name="id" value="${administrador.id}" />
+		<input type="hidden" id="id" name="id" value="${cliente.id}" />
 		<label>Nome:</label>
 		<input type="text" value="${cliente.nome}" readonly="true" />
 		<br />
