@@ -32,7 +32,7 @@
 				<td>${cliente.cpf}</td>
 				<td>${cliente.email}</td>
 				<td>${cliente.senha}</td>
-				<td>${cliente.cartaoCredito}</td>
+				<td>${cliente.cartao}</td>
 				<td>
 					<a href="VisualizarCliente?id=${cliente.id}">Visualizar</a>
 					<a href="EditarCliente?id=${cliente.id}">Editar</a>

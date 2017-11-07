@@ -18,15 +18,16 @@
 		<input type="text" value="${cliente.cpf}" />
 		<br />
 		<label>Cartão de Crédito:</label>
-		<input type="text" value="${cliente.cartaoCredito}" />
+		<input type="text" value="${cliente.cartao}" />
 		<br />
 		<label>Senha:</label>
-		<input type="password" value="${cliente.senha}" />
+		<input type="text" value="${cliente.senha}" />
 		<br />
-		<label>Repetir a senha:</label>
-		<input type="password" value="${cliente.repSenha}" />
-		<br />
+<!-- 		<label>Repetir a senha:</label> -->
+<%-- 		<input type="password" value="${cliente.repSenha}" /> --%>
+<!-- 		<br /> -->
 		<input type="submit" value="Alterar" />
 	</form>
+	<a href="Cliente">Retornar</a>
 </body>
 </html>

@@ -16,5 +16,6 @@
 		</div>
 		<input type="submit" value="Alterar" />
 	</form>
+	<a href="Categoria">Retornar</a>
 </body>
 </html>
