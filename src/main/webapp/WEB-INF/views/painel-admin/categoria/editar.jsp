@@ -8,6 +8,7 @@
 <body>
 	<h1>Editar Categoria</h1>
 	<form action="EditarCategoria" method="post">
+		<input type="hidden" id="id" name="id" value="${categoria.id}" />
 		<div>
 			<label for="nome">Nome:</label>
 			<input type="text" id="nome" name="nome" value="${categoria.nome}" />

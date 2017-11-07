@@ -50,9 +50,13 @@ public class ExcluirAdmin extends HttpServlet {
 			AdministradorDAO administradorDAO = new AdministradorDAO(connection);
 			try {
 				administradorDAO.remove(administrador);
-				request.setAttribute("mensagem", "Exclusão Com Sucesso");
-				request.setAttribute("retorna", "ListaContato");
-				request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp").forward(request,response);
+
+        		request.setAttribute("tipo", "Administrador");
+        		request.setAttribute("nome", request.getParameter("nome"));
+        		request.setAttribute("mensagem", "excluido com sucesso");
+        		request.setAttribute("retorna", "Admin");
+        		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+        		
 			} catch (Exception e) {
 				request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);
 			}

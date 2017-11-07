@@ -51,9 +51,13 @@ public class ExcluirCategoria extends HttpServlet {
 			CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 			try {
 				categoriaDAO.remove(categoria);
-				request.setAttribute("mensagem", "excluida com sucesso");
-				request.setAttribute("retorna", "ListaContato");
-				request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/sucesso.jsp").forward(request,response);
+
+        		request.setAttribute("tipo", "Categoria");
+        		request.setAttribute("nome", request.getParameter("nome"));
+        		request.setAttribute("mensagem", "excluida com sucesso");
+        		request.setAttribute("retorna", "Categoria");
+        		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+        		
 			} catch (Exception e) {
 				request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);
 			}

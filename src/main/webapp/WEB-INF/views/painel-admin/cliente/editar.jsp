@@ -7,23 +7,24 @@
 </head>
 <body>
 	<form action="Cliente/Editar" method="post">
+		<input type="hidden" id="id" name="id" value="${cliente.id}" />
 		<label>Nome:</label>
-		<input type="text" value="${contato.nome}" />
+		<input type="text" value="${cliente.nome}" />
 		<br />
 		<label>Email:</label>
-		<input type="text" value="${contato.email}" />
+		<input type="text" value="${cliente.email}" />
 		<br />
 		<label>CPF:</label>
-		<input type="text" value="${contato.cpf}" />
+		<input type="text" value="${cliente.cpf}" />
 		<br />
 		<label>Cartão de Crédito:</label>
-		<input type="text" value="${contato.cartaoCredito}" />
+		<input type="text" value="${cliente.cartaoCredito}" />
 		<br />
 		<label>Senha:</label>
-		<input type="password" value="${contato.senha}" />
+		<input type="password" value="${cliente.senha}" />
 		<br />
 		<label>Repetir a senha:</label>
-		<input type="password" value="${contato.repSenha}" />
+		<input type="password" value="${cliente.repSenha}" />
 		<br />
 		<input type="submit" value="Alterar" />
 	</form>

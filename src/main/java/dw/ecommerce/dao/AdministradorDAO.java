@@ -46,7 +46,7 @@ public class AdministradorDAO {
 
 	public void atualiza(Administrador administrador) {
 
-		String sql = "update categorias set nome=?, email=?, senha=? where id=?";
+		String sql = "update administradores set nome=?, email=?, senha=? where id=?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

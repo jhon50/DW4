@@ -49,9 +49,13 @@ public class ExcluirCliente extends HttpServlet {
 			ClienteDAO ClienteDAO = new ClienteDAO(connection);
 			try {
 				ClienteDAO.remove(cliente);
-				request.setAttribute("mensagem", "Exclusão Com Sucesso");
-				request.setAttribute("retorna", "ListaContato");
-				request.getRequestDispatcher("WEB-INF/views/painel-admin/cliente/sucesso.jsp").forward(request,response);
+
+        		request.setAttribute("tipo", "Cliente");
+        		request.setAttribute("nome", request.getParameter("nome"));
+        		request.setAttribute("mensagem", "excluido com sucesso");
+        		request.setAttribute("retorna", "Cliente");
+        		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+        		
 			} catch (Exception e) {
 				request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);
 			}

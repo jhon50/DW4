@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>Administradores</h1>
-	<a href="NovoAdmin">Novo</a>
+	<a href="IncluirAdmin">Novo</a>
 	<table>
 		<tr>
 			<th>ID</th>

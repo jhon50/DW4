@@ -49,9 +49,13 @@ public class ExcluirProduto extends HttpServlet {
 			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
 			try {
 				produtoDAO.remove(produto);
-				request.setAttribute("mensagem", "Exclusão Com Sucesso");
-				request.setAttribute("retorna", "ListaContato");
-				request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/sucesso.jsp").forward(request,response);
+
+        		request.setAttribute("tipo", "Produto");
+        		request.setAttribute("nome", request.getParameter("nome"));
+        		request.setAttribute("mensagem", "excluido com sucesso");
+        		request.setAttribute("retorna", "Produto");
+        		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+        		
 			} catch (Exception e) {
 				request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);
 			}

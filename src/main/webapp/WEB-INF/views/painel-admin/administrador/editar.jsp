@@ -8,6 +8,7 @@
 <body>
 	<h1>Editar Administrador</h1>
 	<form action="EditarAdmin" method="post">
+		<input type="hidden" id="id" name="id" value="${administrador.id}" />
 		<div>
 			<label for="nome">Nome:</label>
 			<input type="text" id="nome" name="nome" value="${administrador.nome}" />
