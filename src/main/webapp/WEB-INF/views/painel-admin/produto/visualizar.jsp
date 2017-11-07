@@ -8,7 +8,7 @@
 <body>
 	<h1>Dados do Produto</h1>
 	<form action="produto" method="post">
-		<input type="hidden" id="nome" name="nome" value="${produto.id}" readonly="true" />
+		<input type="hidden" id="id" name="id" value="${produto.id}" readonly="true" />
 		<div>
 			<label for="nome">Categoria:</label>
 			<input type="text" id="categoria" name="categoria" value="${produto.categoria}" readonly="true" />

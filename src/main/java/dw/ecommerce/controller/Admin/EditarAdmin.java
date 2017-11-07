@@ -57,10 +57,12 @@ public class EditarAdmin extends HttpServlet {
             	AdministradorDAO administradorDAO = new AdministradorDAO(connection);
                 try {
                 	administradorDAO.atualiza(administrador);
-                    request.setAttribute("mensagem", "Alterado Com Sucesso");
-                    request.setAttribute("retorna", "ListaContato");
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp");
-                    rd.forward(request, response);
+                	
+            		request.setAttribute("tipo", "Administrador");
+            		request.setAttribute("nome", request.getParameter("nome"));
+            		request.setAttribute("mensagem", "atualizado com sucesso");
+            		request.setAttribute("retorna", "Admin");
+            		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
 
                 } catch (Exception e) {
                     RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp");

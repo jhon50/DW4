@@ -2,6 +2,7 @@ package dw.ecommerce.controller.Produto;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dw.ecommerce.dao.CategoriaDAO;
 import dw.ecommerce.dao.ProdutoDAO;
+import dw.ecommerce.modelo.Categoria;
 import dw.ecommerce.modelo.Produto;
 
 @WebServlet("/EditarProduto")
@@ -25,10 +28,12 @@ public class EditarProduto extends HttpServlet {
 		long id = Integer.parseInt(request.getParameter("id"));
 		Produto produto = new Produto(id);
 		ProdutoDAO produtoDAO = new ProdutoDAO(connection);
-
 		produtoDAO.buscaId(produto);
 		request.setAttribute("produto", produto);
 
+		List<Categoria> categorias = new CategoriaDAO(connection).getLista();
+		request.setAttribute("categorias", categorias);
+		
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/editar.jsp").forward(request, response);
 		;
 
@@ -61,11 +66,13 @@ public class EditarProduto extends HttpServlet {
 				ProdutoDAO produtoDAO = new ProdutoDAO(connection);
 				try {
 					produtoDAO.atualiza(produto);
-					request.setAttribute("mensagem", "Alterado Com Sucesso");
-					request.setAttribute("retorna", "ListaContato");
-					RequestDispatcher rd = request
-							.getRequestDispatcher("WEB-INF/views/painel-admin/produto/sucesso.jsp");
-					rd.forward(request, response);
+					
+            		request.setAttribute("tipo", "Produto");
+            		request.setAttribute("nome", request.getParameter("nome"));
+            		request.setAttribute("mensagem", "atualizado com sucesso");
+            		request.setAttribute("retorna", "Produto");
+            		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+
 
 				} catch (Exception e) {
 					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp");

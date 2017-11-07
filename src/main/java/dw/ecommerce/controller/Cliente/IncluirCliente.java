@@ -37,8 +37,12 @@ public class IncluirCliente extends HttpServlet {
 		cliente.setCpf(request.getParameter("cpf"));
 
 		new ClienteDAO(connection).adiciona(cliente);
-		request.setAttribute("cliente_nome", request.getParameter("nome"));
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/cliente/sucesso.jsp").forward(request, response);
+		
+		request.setAttribute("tipo", "Cliente");
+		request.setAttribute("nome", request.getParameter("nome"));
+		request.setAttribute("mensagem", "adicionado com sucesso");
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+
 
 	}
 }

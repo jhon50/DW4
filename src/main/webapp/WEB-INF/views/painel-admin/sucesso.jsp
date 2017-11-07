@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Categoria ${categoria_nome} , ${mensagem}!</h1>
-<a href="Categoria">Voltar para lista de categorias</a>
+	<h1>${tipo} ${nome}, ${mensagem}!</h1>
+	<a href="${retorna}">Voltar para lista de ${tipo}</a>
 </body>
 </html>

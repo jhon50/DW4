@@ -32,8 +32,12 @@ public class IncluirCategoria extends HttpServlet {
 		categoria.setNome(request.getParameter("nome"));
 		
 		new CategoriaDAO(connection).adiciona(categoria);
-		request.setAttribute("categoria_nome", request.getParameter("nome"));
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/sucesso.jsp").forward(request, response);
+		
+		request.setAttribute("tipo", "Categoria");
+		request.setAttribute("nome", request.getParameter("nome"));
+		request.setAttribute("mensagem", "adicionada com sucesso");
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+
 
 	}
 }

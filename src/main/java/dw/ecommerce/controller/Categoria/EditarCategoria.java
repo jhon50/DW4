@@ -55,10 +55,13 @@ public class EditarCategoria extends HttpServlet {
             	CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
                 try {
                 	categoriaDAO.atualiza(categoria);
-                    request.setAttribute("mensagem", "Alterada Com Sucesso");
-                    request.setAttribute("retorna", "ListaContato");
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/sucesso.jsp");
-                    rd.forward(request, response);
+
+            		request.setAttribute("tipo", "Categoria");
+            		request.setAttribute("nome", request.getParameter("nome"));
+            		request.setAttribute("mensagem", "atualizada com sucesso");
+            		request.setAttribute("retorna", "Categoria");
+            		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+
 
                 } catch (Exception e) {
                     RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp");

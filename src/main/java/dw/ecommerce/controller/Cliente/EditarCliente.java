@@ -61,11 +61,13 @@ public class EditarCliente extends HttpServlet {
 				
 				try {
 					clienteDAO.atualiza(cliente);
-					request.setAttribute("mensagem", "Alterado Com Sucesso");
-					request.setAttribute("retorna", "ListaContato");
-					RequestDispatcher rd = request
-							.getRequestDispatcher("WEB-INF/views/painel-admin/cliente/sucesso.jsp");
-					rd.forward(request, response);
+
+            		request.setAttribute("tipo", "Cliente");
+            		request.setAttribute("nome", request.getParameter("nome"));
+            		request.setAttribute("mensagem", "atualizado com sucesso");
+            		request.setAttribute("retorna", "Cliente");
+            		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
+
 
 				} catch (Exception e) {
 					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp");

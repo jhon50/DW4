@@ -34,8 +34,12 @@ public class IncluirAdmin extends HttpServlet {
 		admin.setSenha(request.getParameter("senha"));
 		
 		new AdministradorDAO(connection).adiciona(admin);
-		request.setAttribute("adm_nome", request.getParameter("nome"));
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp").forward(request, response);
+		
+		
+		request.setAttribute("tipo", "Administrador");
+		request.setAttribute("nome", request.getParameter("nome"));
+		request.setAttribute("mensagem", "adicionado com sucesso");
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
 
 	}
 }
