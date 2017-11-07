@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
-import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.dao.ProdutoDAO;
+import dw.ecommerce.modelo.Produto;
 
-@WebServlet("/Admin")
+@WebServlet("/Produto")
 public class ListaProduto extends HttpServlet {
 
 	@Override
@@ -22,9 +22,9 @@ public class ListaProduto extends HttpServlet {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
 
-		List<Administrador> administradores = new AdministradorDAO(connection).getLista();
-		request.setAttribute("administradores", administradores);
+		List<Produto> produtos = new ProdutoDAO(connection).getLista();
+		request.setAttribute("produtos", produtos);
 
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/admin.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/produto.jsp").forward(request, response);
 	}
 }

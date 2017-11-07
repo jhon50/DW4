@@ -29,6 +29,7 @@ public class IncluirCliente extends HttpServlet {
 		Connection connection = (Connection) request.getAttribute("conexao");
 
 		Cliente cliente = new Cliente();
+		
 		cliente.setNome(request.getParameter("nome"));
 		cliente.setEmail(request.getParameter("email"));
 		cliente.setSenha(request.getParameter("senha"));

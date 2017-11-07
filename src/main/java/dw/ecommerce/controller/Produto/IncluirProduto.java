@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
+import dw.ecommerce.dao.ProdutoDAO;
+import dw.ecommerce.modelo.Produto;
 
-@WebServlet("/Incluir")
+@WebServlet("/IncluirProduto")
 public class IncluirProduto extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/form.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/form.jsp").forward(request, response);
 	}
 
 	@Override
@@ -26,9 +27,17 @@ public class IncluirProduto extends HttpServlet {
 			throws ServletException, IOException {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
-		new AdministradorDAO(connection).adiciona(request);
-		request.setAttribute("adm_nome", request.getParameter("nome"));
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp").forward(request, response);
+		
+		String nome = request.getParameter("nome");
+		String categoria = request.getParameter("categoria");
+		String descricao = request.getParameter("descricao");
+		double preco = Double.parseDouble(request.getParameter("preco"));
+
+		Produto produto = new Produto(categoria, nome, descricao, preco);
+		
+		new ProdutoDAO(connection).adiciona(produto);
+		request.setAttribute("produto_nome", request.getParameter("nome"));
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/sucesso.jsp").forward(request, response);
 
 	}
 }

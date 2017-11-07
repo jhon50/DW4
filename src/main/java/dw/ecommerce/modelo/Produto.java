@@ -29,7 +29,29 @@ public class Produto {
         
     }
 
-    public Long getId() {
+    public Produto(Long id, String categoria, String nome, String descricao, double preco) {
+		super();
+		this.id = id;
+		this.categoria = categoria;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+
+    
+	public Produto(String categoria, String nome, String descricao, double preco) {
+		super();
+		this.categoria = categoria;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+
+	public Produto(long id) {
+    	this.id = id;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -61,6 +83,11 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
+	public static boolean valida(Produto produto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
     
     
     

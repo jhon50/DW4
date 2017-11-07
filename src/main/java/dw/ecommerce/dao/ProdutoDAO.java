@@ -22,17 +22,17 @@ public class ProdutoDAO {
     public ProdutoDAO(Connection connection){
         this.connection = connection;
     }
-    public void adiciona(HttpServletRequest request) {
+    public void adiciona(Produto produto) {
 
         String sql = "insert into produtos(categoria,nome,descricao,preco) values(?,?,?,?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, request.getParameter("categoria"));
-            stmt.setString(2, request.getParameter("nome"));
-            stmt.setString(3, request.getParameter("descricao"));
-            stmt.setDouble(4, Double.parseDouble(request.getParameter("preco")));
+            stmt.setString(1, produto.getCategoria());
+            stmt.setString(2, produto.getNome());
+            stmt.setString(3, produto.getDescricao());
+            stmt.setDouble(4, produto.getPreco());
 
             stmt.execute();
             stmt.close();
@@ -165,5 +165,9 @@ public class ProdutoDAO {
             throw new RuntimeException(e);
         }
     }
+	public void buscaId(Produto produto) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

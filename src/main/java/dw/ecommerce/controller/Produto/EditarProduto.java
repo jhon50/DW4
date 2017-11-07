@@ -10,69 +10,74 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
-import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.dao.ProdutoDAO;
+import dw.ecommerce.modelo.Produto;
 
-@WebServlet("/Editar")
+@WebServlet("/EditarProduto")
 public class EditarProduto extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		Connection connection = (Connection) request.getAttribute("conexao");
-		
+
 		long id = Integer.parseInt(request.getParameter("id"));
-		Administrador admin = new Administrador(id);
-		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
-		
-		administradorDAO.getID(admin);
-		request.setAttribute("administrador", admin);
-		
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/editar.jsp").forward(request, response);;
-			
+		Produto produto = new Produto(id);
+		ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+
+		produtoDAO.buscaId(produto);
+		request.setAttribute("produto", produto);
+
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/editar.jsp").forward(request, response);
+		;
+
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		Connection connection = (Connection) request.getAttribute("conexao");
 
-        long id = Integer.parseInt(request.getParameter("id"));
-        String nome = request.getParameter("nome");
-        String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
+		long id = Integer.parseInt(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		String categoria = request.getParameter("categoria");
+		String descricao = request.getParameter("descricao");
+		double preco = Double.parseDouble(request.getParameter("preco"));
 
-        Administrador administrador = new Administrador(id, nome,email, senha);
-        
-        try {
-            if (Administrador.valida(administrador)){
-            	
-            	request.setAttribute("erro", "Administrador inválido");
-                request.setAttribute("administrador", administrador);
-                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/editar.jsp");
-                rd.forward(request, response);
-                
-            } else {
+		Produto produto = new Produto(id, categoria, nome, descricao, preco);
 
-            	AdministradorDAO administradorDAO = new AdministradorDAO(connection);
-                try {
-                	administradorDAO.atualiza(administrador);
-                    request.setAttribute("mensagem", "Alterado Com Sucesso");
-                    request.setAttribute("retorna", "ListaContato");
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp");
-                    rd.forward(request, response);
+		try {
+			if (Produto.valida(produto)) {
 
-                } catch (Exception e) {
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp");
-                    rd.forward(request, response);
-                }
+				request.setAttribute("erro", "Produto inválido");
+				request.setAttribute("produto", produto);
+				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/editar.jsp");
+				rd.forward(request, response);
 
-            }
+			} else {
 
-        } catch (Exception e) {
-        	request.setAttribute("erro", "Administrador inválido");
-            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/form.jsp");
-            rd.forward(request, response);
-        }
+				ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+				try {
+					produtoDAO.atualiza(produto);
+					request.setAttribute("mensagem", "Alterado Com Sucesso");
+					request.setAttribute("retorna", "ListaContato");
+					RequestDispatcher rd = request
+							.getRequestDispatcher("WEB-INF/views/painel-admin/produto/sucesso.jsp");
+					rd.forward(request, response);
+
+				} catch (Exception e) {
+					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp");
+					rd.forward(request, response);
+				}
+
+			}
+
+		} catch (Exception e) {
+			request.setAttribute("erro", "Produto inválido");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/form.jsp");
+			rd.forward(request, response);
+		}
 	}
 }
