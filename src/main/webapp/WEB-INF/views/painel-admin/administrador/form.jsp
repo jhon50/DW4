@@ -50,7 +50,7 @@
 	
 </script>
 <body>
-	<form action="Admin" method="post" id="form_adm" name="form_adm" onsubmit="return validarFormulario();">
+	<form action="IncluirAdmin" method="post" id="form_adm" name="form_adm" onsubmit="return validarFormulario();">
 		<div>
 			<label for="nome">Nome:</label> 
 			<input type="text" id="nome" name="nome" onblur="validaCampos(this,document.getElementById('aviso_nome'))" />

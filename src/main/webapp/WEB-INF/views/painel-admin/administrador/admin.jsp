@@ -31,9 +31,9 @@
 				<td>${administrador.email}</td>
 				<td>${administrador.senha}</td>
 				<td>
-					<a href="Visualizar?id=${administrador.id}">Visualizar</a>
-					<a href="Editar?id=${administrador.id}">Editar</a>
-					<a href="Excluir?id=${administrador.id}">Excluir</a>
+					<a href="VisualizarAdmin?id=${administrador.id}">Visualizar</a>
+					<a href="EditarAdmin?id=${administrador.id}">Editar</a>
+					<a href="ExcluirAdmin?id=${administrador.id}">Excluir</a>
 				</td>				
 			</tr>
 		</c:forEach>

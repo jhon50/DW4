@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>Editar Administrador</h1>
-	<form action="Editar" method="post">
+	<form action="EditarAdmin" method="post">
 		<div>
 			<label for="nome">Nome:</label>
 			<input type="text" id="nome" name="nome" value="${administrador.nome}" />
