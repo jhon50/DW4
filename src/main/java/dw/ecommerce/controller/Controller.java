@@ -1,6 +1,5 @@
 package dw.ecommerce.controller;
 
-import java.io.Console;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -11,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/")
 public class Controller extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
