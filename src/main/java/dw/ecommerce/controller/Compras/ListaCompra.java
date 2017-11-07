@@ -25,6 +25,6 @@ public class ListaCompra extends HttpServlet {
 		List<Administrador> administradores = new AdministradorDAO(connection).getLista();
 		request.setAttribute("administradores", administradores);
 
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/admin.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/compra.jsp").forward(request, response);
 	}
 }

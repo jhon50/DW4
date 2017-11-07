@@ -25,6 +25,6 @@ public class ListaCliente extends HttpServlet {
 		List<Cliente> clientes = new ClienteDAO(connection).getLista();
 		request.setAttribute("clientes", clientes);
 
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/cliente/admin.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/cliente/cliente.jsp").forward(request, response);
 	}
 }

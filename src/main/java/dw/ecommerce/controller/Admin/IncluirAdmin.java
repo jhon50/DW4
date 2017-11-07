@@ -39,6 +39,7 @@ public class IncluirAdmin extends HttpServlet {
 		request.setAttribute("tipo", "Administrador");
 		request.setAttribute("nome", request.getParameter("nome"));
 		request.setAttribute("mensagem", "adicionado com sucesso");
+		request.setAttribute("retorna", "Admin");
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
 
 	}

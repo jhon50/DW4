@@ -33,7 +33,7 @@ public class IncluirCliente extends HttpServlet {
 		cliente.setNome(request.getParameter("nome"));
 		cliente.setEmail(request.getParameter("email"));
 		cliente.setSenha(request.getParameter("senha"));
-		cliente.setCartaoCredito(request.getParameter("cartaoCredito"));
+		cliente.setCartao(request.getParameter("cartaoCredito"));
 		cliente.setCpf(request.getParameter("cpf"));
 
 		new ClienteDAO(connection).adiciona(cliente);
@@ -41,6 +41,7 @@ public class IncluirCliente extends HttpServlet {
 		request.setAttribute("tipo", "Cliente");
 		request.setAttribute("nome", request.getParameter("nome"));
 		request.setAttribute("mensagem", "adicionado com sucesso");
+		request.setAttribute("retorna", "Cliente");
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
 
 

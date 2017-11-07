@@ -10,26 +10,26 @@ package dw.ecommerce.modelo;
  * @author Bruno Dutra
  */
 public class Produto {
-    
-    private Long id;
-    private String categoria;
-    private String nome;
-    private String descricao;
-    private double preco;
 
-    public String getCategoria() {
-        return categoria;
-    }
+	private Long id;
+	private String categoria;
+	private String nome;
+	private String descricao;
+	private double preco;
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-    
-    public Produto(){
-        
-    }
+	public String getCategoria() {
+		return categoria;
+	}
 
-    public Produto(Long id, String categoria, String nome, String descricao, double preco) {
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public Produto() {
+
+	}
+
+	public Produto(Long id, String categoria, String nome, String descricao, double preco) {
 		super();
 		this.id = id;
 		this.categoria = categoria;
@@ -38,7 +38,6 @@ public class Produto {
 		this.preco = preco;
 	}
 
-    
 	public Produto(String categoria, String nome, String descricao, double preco) {
 		super();
 		this.categoria = categoria;
@@ -48,47 +47,52 @@ public class Produto {
 	}
 
 	public Produto(long id) {
-    	this.id = id;
+		this.id = id;
 	}
 
 	public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
+	public String getNome() {
+		return nome;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getDescricao() {
+		return descricao;
+	}
 
-    public String getDescricao() {
-        return descricao;
-    }
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+	public double getPreco() {
+		return preco;
+	}
 
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 
 	public static boolean valida(Produto produto) {
-		// TODO Auto-generated method stub
+
+		String categoria = produto.getCategoria();
+		String nome = produto.getNome();
+		String descricao = produto.getDescricao();
+		Double preco = produto.getPreco();
+
+		if ((categoria.isEmpty()) || (nome.isEmpty()) || (descricao.isEmpty()) || (preco == null)) {
+			return true;
+		}
 		return false;
 	}
-    
-    
-    
+
 }

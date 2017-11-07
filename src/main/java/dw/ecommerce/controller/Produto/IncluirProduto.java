@@ -49,6 +49,7 @@ public class IncluirProduto extends HttpServlet {
 		request.setAttribute("tipo", "Produto");
 		request.setAttribute("nome", request.getParameter("nome"));
 		request.setAttribute("mensagem", "adicionado com sucesso");
+		request.setAttribute("retorna", "Produto");
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
 
 

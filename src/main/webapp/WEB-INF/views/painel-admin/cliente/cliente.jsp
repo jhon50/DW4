@@ -3,8 +3,8 @@
     Created on : 28/10/2017, 01:40:05
     Author     : Bruno Dutra
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <body>
 	<h1>Clientes</h1>
 	<br />
-	<a href="NovoCliente">Novo Cliente</a>
+	<a href="IncluirCliente">Novo Cliente</a>
 	<table>
 		<tr>
 			<th>ID</th>
@@ -34,9 +34,9 @@
 				<td>${cliente.senha}</td>
 				<td>${cliente.cartaoCredito}</td>
 				<td>
-					<a href="Visualizar?id=${cliente.id}">Visualizar</a> 
-					<a href="Editar?id=${cliente.id}">Editar</a> 
-					<a href="Excluir?id=${cliente.id}">Excluir</a>
+					<a href="VisualizarCliente?id=${cliente.id}">Visualizar</a>
+					<a href="EditarCliente?id=${cliente.id}">Editar</a>
+					<a href="ExcluirCliente?id=${cliente.id}">Excluir</a>
 				</td>
 			</tr>
 		</c:forEach>

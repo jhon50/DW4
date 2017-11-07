@@ -10,19 +10,20 @@ package dw.ecommerce.modelo;
  * @author Bruno Dutra
  */
 public class Cliente {
-    
-    private Long id;
-    private String nome;
-    private String email;
-    private String senha;
-    private String cartaoCredito;
-    private String cpf;
 
-    public Cliente(){
-    	
-    }
-    public Cliente(long id) {
-    	this.id = id;
+	private Long id;
+	private String nome;
+	private String email;
+	private String senha;
+	private String cartao;
+	private String cpf;
+
+	public Cliente() {
+
+	}
+
+	public Cliente(long id) {
+		this.id = id;
 	}
 
 	public Cliente(Long id, String nome, String email, String senha, String cartaoCredito, String cpf) {
@@ -30,62 +31,70 @@ public class Cliente {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.cartaoCredito = cartaoCredito;
+		this.cartao = cartaoCredito;
 		this.cpf = cpf;
 	}
 
 	public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public String getCartaoCredito() {
-        return cartaoCredito;
-    }
+	public String getCartao() {
+		return cartao;
+	}
 
-    public void setCartaoCredito(String cartaoCredito) {
-        this.cartaoCredito = cartaoCredito;
-    }
+	public void setCartao(String cartao) {
+		this.cartao = cartao;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public static boolean valida(Cliente cliente) {
-		// TODO Auto-generated method stub
+
+		String nome = cliente.getNome();
+		String email = cliente.getEmail();
+		String senha = cliente.getSenha();
+		String cpf = cliente.getCpf();
+		String cartao = cliente.getCartao();
+
+		if ((email.isEmpty()) || (nome.isEmpty()) || (senha.isEmpty()) || (cpf.isEmpty()) || (cartao.isEmpty())) {
+			return true;
+		}
 		return false;
 	}
-    
-    
+
 }

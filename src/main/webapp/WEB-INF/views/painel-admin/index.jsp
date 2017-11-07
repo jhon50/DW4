@@ -17,10 +17,10 @@
 			<a href="Categoria">Categorias</a>
 		</li>
 		<li>
-			<a href="cliente/cliente.jsp">Clientes</a>
+			<a href="Cliente">Clientes</a>
 		</li>
 		<li>
-			<a href="compra/compra.jsp">Compras</a>
+			<a href="Compra">Compras</a>
 		</li>
 		<li>
 			<a href="Produto">Produtos</a>

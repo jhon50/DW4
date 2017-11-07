@@ -21,18 +21,18 @@ public class ClienteDAO {
 		this.connection = connection;
 	}
 
-	public void adiciona(Cliente usuario) {
+	public void adiciona(Cliente cliente) {
 
-		String sql = "insert into clientes(nome,email,senha,cartaoCredito,cpf) values(?,?,?,?,?)";
+		String sql = "insert into clientes(nome,email,senha,cartao,cpf) values(?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, usuario.getNome());
-			stmt.setString(2, usuario.getEmail());
-			stmt.setString(3, usuario.getSenha());
-			stmt.setString(4, usuario.getCartaoCredito());
-			stmt.setString(5, usuario.getCpf());
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getEmail());
+			stmt.setString(3, cliente.getSenha());
+			stmt.setString(4, cliente.getCartao());
+			stmt.setString(5, cliente.getCpf());
 
 			stmt.execute();
 			stmt.close();
@@ -43,19 +43,19 @@ public class ClienteDAO {
 
 	}
 
-	public void atualiza(Cliente usuario) {
+	public void atualiza(Cliente cliente) {
 
-		String sql = "update clientes set nome=?, email=?, senha=?, cartaoCredito=?, cpf=? where id=?";
+		String sql = "update clientes set nome=?, email=?, senha=?, cartao=?, cpf=? where id=?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, usuario.getNome());
-			stmt.setString(2, usuario.getEmail());
-			stmt.setString(3, usuario.getSenha());
-			stmt.setString(4, usuario.getCartaoCredito());
-			stmt.setString(5, usuario.getCpf());
-			stmt.setLong(6, usuario.getId());
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getEmail());
+			stmt.setString(3, cliente.getSenha());
+			stmt.setString(4, cliente.getCartao());
+			stmt.setString(5, cliente.getCpf());
+			stmt.setLong(6, cliente.getId());
 
 			stmt.execute();
 			stmt.close();
@@ -64,11 +64,11 @@ public class ClienteDAO {
 		}
 	}
 
-	public void remove(Cliente usuario) {
+	public void remove(Cliente cliente) {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from clientes where id=?");
-			stmt.setLong(1, usuario.getId());
+			stmt.setLong(1, cliente.getId());
 
 			stmt.execute();
 			stmt.close();
@@ -93,7 +93,7 @@ public class ClienteDAO {
 				cliente.setNome(rs.getString("nome"));
 				cliente.setEmail(rs.getString("email"));
 				cliente.setSenha(rs.getString("senha"));
-				cliente.setCartaoCredito(rs.getString("cartaoCredito"));
+				cliente.setCartao(rs.getString("cartao"));
 				cliente.setCpf(rs.getString("cpf"));
 
 				clientes.add(cliente);
@@ -120,7 +120,7 @@ public class ClienteDAO {
 					cliente.setNome(rs.getString("nome"));
 					cliente.setEmail(rs.getString("email"));
 					cliente.setSenha(rs.getString("senha"));
-					cliente.setCartaoCredito(rs.getString("cartaoCredito"));
+					cliente.setCartao(rs.getString("cartao"));
 					cliente.setCpf(rs.getString("cpf"));
 				}
 			}
