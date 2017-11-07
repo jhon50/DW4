@@ -24,16 +24,16 @@ public class AdministradorDAO {
 		this.connection = connection;
 	}
 
-	public void adiciona(HttpServletRequest request) {
+	public void adiciona(Administrador admin) {
 
 		String sql = "insert into administradores(nome, email, senha) values(?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, request.getParameter("nome"));
-			stmt.setString(2, request.getParameter("email"));
-			stmt.setString(3, request.getParameter("senha"));
+			stmt.setString(1, admin.getNome());
+			stmt.setString(2, admin.getEmail());
+			stmt.setString(3, admin.getSenha());
 
 			stmt.execute();
 			stmt.close();

@@ -1,4 +1,4 @@
-package dw.ecommerce.controller.Compras;
+package dw.ecommerce.controller.Cliente;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
-import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.dao.ClienteDAO;
+import dw.ecommerce.modelo.Cliente;
 
-@WebServlet("/Admin")
-public class Lista extends HttpServlet {
+@WebServlet("/Cliente")
+public class ListaCliente extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,9 +22,9 @@ public class Lista extends HttpServlet {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
 
-		List<Administrador> administradores = new AdministradorDAO(connection).getLista();
-		request.setAttribute("administradores", administradores);
+		List<Cliente> clientes = new ClienteDAO(connection).getLista();
+		request.setAttribute("clientes", clientes);
 
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/admin.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/cliente/admin.jsp").forward(request, response);
 	}
 }

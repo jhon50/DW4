@@ -1,4 +1,4 @@
-package dw.ecommerce.controller.Categoria;
+package dw.ecommerce.controller.Produto;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,12 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dw.ecommerce.dao.AdministradorDAO;
-import dw.ecommerce.dao.CategoriaDAO;
 import dw.ecommerce.modelo.Administrador;
-import dw.ecommerce.modelo.Categoria;
 
 @WebServlet("/Editar")
-public class Editar extends HttpServlet {
+public class EditarProduto extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,13 +22,13 @@ public class Editar extends HttpServlet {
 		Connection connection = (Connection) request.getAttribute("conexao");
 		
 		long id = Integer.parseInt(request.getParameter("id"));
-		Categoria categoria = new Categoria(id);
-		CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
+		Administrador admin = new Administrador(id);
+		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
 		
-		categoriaDAO.getID(categoria);
-		request.setAttribute("categoria", categoria);
+		administradorDAO.getID(admin);
+		request.setAttribute("administrador", admin);
 		
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/editar.jsp").forward(request, response);;
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/editar.jsp").forward(request, response);;
 			
 	}
 	
@@ -41,25 +39,27 @@ public class Editar extends HttpServlet {
 
         long id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
-        
-        Categoria categoria = new Categoria(id, nome);
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
 
+        Administrador administrador = new Administrador(id, nome,email, senha);
         
         try {
-            if (Categoria.valida(categoria)){
+            if (Administrador.valida(administrador)){
             	
-            	request.setAttribute("erro", "Categoria invalida");
-            	request.setAttribute("categoria", categoria);
-                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/editar.jsp");
+            	request.setAttribute("erro", "Administrador inválido");
+                request.setAttribute("administrador", administrador);
+                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/editar.jsp");
                 rd.forward(request, response);
                 
             } else {
-            	CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
+
+            	AdministradorDAO administradorDAO = new AdministradorDAO(connection);
                 try {
-                	categoriaDAO.atualiza(categoria);
-                    request.setAttribute("mensagem", "Alterada Com Sucesso");
+                	administradorDAO.atualiza(administrador);
+                    request.setAttribute("mensagem", "Alterado Com Sucesso");
                     request.setAttribute("retorna", "ListaContato");
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/sucesso.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp");
                     rd.forward(request, response);
 
                 } catch (Exception e) {
@@ -70,8 +70,8 @@ public class Editar extends HttpServlet {
             }
 
         } catch (Exception e) {
-        	request.setAttribute("erro", "Categoria invalida");
-            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/form.jsp");
+        	request.setAttribute("erro", "Administrador inválido");
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/form.jsp");
             rd.forward(request, response);
         }
 	}

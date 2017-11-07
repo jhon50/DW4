@@ -1,4 +1,4 @@
-package dw.ecommerce.controller.Categoria;
+package dw.ecommerce.controller.Compras;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,7 +14,7 @@ import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.modelo.Administrador;
 
 @WebServlet("/Excluir")
-public class Excluir extends HttpServlet {
+public class ExcluirCompra extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

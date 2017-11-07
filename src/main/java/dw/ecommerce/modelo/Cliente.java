@@ -18,7 +18,23 @@ public class Cliente {
     private String cartaoCredito;
     private String cpf;
 
-    public Long getId() {
+    public Cliente(){
+    	
+    }
+    public Cliente(long id) {
+    	this.id = id;
+	}
+
+	public Cliente(Long id, String nome, String email, String senha, String cartaoCredito, String cpf) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.cartaoCredito = cartaoCredito;
+		this.cpf = cpf;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -65,6 +81,11 @@ public class Cliente {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+	public static boolean valida(Cliente cliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
     
     
 }

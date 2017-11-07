@@ -2,7 +2,6 @@ package dw.ecommerce.controller.Admin;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.modelo.Administrador;
 
-@WebServlet("/Admin")
-public class Lista extends HttpServlet {
+@WebServlet("/Visualizar")
+public class VisualizarAdmin extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,9 +21,19 @@ public class Lista extends HttpServlet {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
 
-		List<Administrador> administradores = new AdministradorDAO(connection).getLista();
-		request.setAttribute("administradores", administradores);
+		long id = Integer.parseInt(request.getParameter("id"));
+		Administrador admin = new Administrador(id);
+		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
 
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/admin.jsp").forward(request, response);
+		try {
+			administradorDAO.getID(admin);
+			request.setAttribute("administrador", admin);
+			request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/visualizar.jsp").forward(request, response);
+
+		} catch (Exception e) {
+			request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);
+		}
+
 	}
+
 }

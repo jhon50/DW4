@@ -1,8 +1,6 @@
 //CRUD CATEGORIA
 package dw.ecommerce.dao;
 
-import dw.ecommerce.modelo.Administrador;
-import dw.ecommerce.modelo.Categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import dw.ecommerce.modelo.Categoria;
 
 /**
  *
@@ -24,14 +22,14 @@ public class CategoriaDAO {
         this.connection = connection;
     }
 
-    public void adiciona(HttpServletRequest request) {
+    public void adiciona(Categoria categoria) {
         
         String sql = "insert into categorias(nome) values(?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, request.getParameter("nome").toUpperCase());
+            stmt.setString(1, categoria.getNome().toUpperCase());
 
             stmt.execute();
             stmt.close();

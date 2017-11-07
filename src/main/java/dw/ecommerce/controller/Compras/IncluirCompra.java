@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dw.ecommerce.dao.AdministradorDAO;
 
 @WebServlet("/Incluir")
-public class Incluir extends HttpServlet {
+public class IncluirCompra extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

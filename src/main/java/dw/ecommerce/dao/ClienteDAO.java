@@ -105,4 +105,9 @@ public class ClienteDAO {
 
     }
 
+	public void buscaId(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -1,4 +1,4 @@
-package dw.ecommerce.controller.Categoria;
+package dw.ecommerce.controller.Cliente;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,7 +13,7 @@ import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.modelo.Administrador;
 
 @WebServlet("/Visualizar")
-public class Visualizar extends HttpServlet {
+public class VisualizarCliente extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

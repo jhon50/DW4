@@ -1,4 +1,4 @@
-package dw.ecommerce.controller.Produto;
+package dw.ecommerce.controller.Categoria;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
-import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.dao.CategoriaDAO;
+import dw.ecommerce.modelo.Categoria;
 
-@WebServlet("/Editar")
-public class Editar extends HttpServlet {
+@WebServlet("/EditarCategoria")
+public class EditarCategoria extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,13 +22,13 @@ public class Editar extends HttpServlet {
 		Connection connection = (Connection) request.getAttribute("conexao");
 		
 		long id = Integer.parseInt(request.getParameter("id"));
-		Administrador admin = new Administrador(id);
-		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
+		Categoria categoria = new Categoria(id);
+		CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 		
-		administradorDAO.getID(admin);
-		request.setAttribute("administrador", admin);
+		categoriaDAO.getID(categoria);
+		request.setAttribute("categoria", categoria);
 		
-		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/editar.jsp").forward(request, response);;
+		request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/editar.jsp").forward(request, response);;
 			
 	}
 	
@@ -39,27 +39,25 @@ public class Editar extends HttpServlet {
 
         long id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
-        String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
+        
+        Categoria categoria = new Categoria(id, nome);
 
-        Administrador administrador = new Administrador(id, nome,email, senha);
         
         try {
-            if (Administrador.valida(administrador)){
+            if (Categoria.valida(categoria)){
             	
-            	request.setAttribute("erro", "Administrador inválido");
-                request.setAttribute("administrador", administrador);
-                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/editar.jsp");
+            	request.setAttribute("erro", "Categoria invalida");
+            	request.setAttribute("categoria", categoria);
+                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/editar.jsp");
                 rd.forward(request, response);
                 
             } else {
-
-            	AdministradorDAO administradorDAO = new AdministradorDAO(connection);
+            	CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
                 try {
-                	administradorDAO.atualiza(administrador);
-                    request.setAttribute("mensagem", "Alterado Com Sucesso");
+                	categoriaDAO.atualiza(categoria);
+                    request.setAttribute("mensagem", "Alterada Com Sucesso");
                     request.setAttribute("retorna", "ListaContato");
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/sucesso.jsp");
                     rd.forward(request, response);
 
                 } catch (Exception e) {
@@ -70,8 +68,8 @@ public class Editar extends HttpServlet {
             }
 
         } catch (Exception e) {
-        	request.setAttribute("erro", "Administrador inválido");
-            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/form.jsp");
+        	request.setAttribute("erro", "Categoria invalida");
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/form.jsp");
             rd.forward(request, response);
         }
 	}

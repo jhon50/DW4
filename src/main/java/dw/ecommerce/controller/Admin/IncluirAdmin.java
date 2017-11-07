@@ -1,4 +1,4 @@
-package dw.ecommerce.controller.Produto;
+package dw.ecommerce.controller.Admin;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dw.ecommerce.dao.AdministradorDAO;
+import dw.ecommerce.modelo.Administrador;
 
-@WebServlet("/Incluir")
-public class Incluir extends HttpServlet {
+@WebServlet("/IncluirAdmin")
+public class IncluirAdmin extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -26,7 +27,13 @@ public class Incluir extends HttpServlet {
 			throws ServletException, IOException {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
-		new AdministradorDAO(connection).adiciona(request);
+		Administrador admin = new Administrador();
+		
+		admin.setNome(request.getParameter("nome"));
+		admin.setEmail(request.getParameter("email"));
+		admin.setSenha(request.getParameter("senha"));
+		
+		new AdministradorDAO(connection).adiciona(admin);
 		request.setAttribute("adm_nome", request.getParameter("nome"));
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp").forward(request, response);
 

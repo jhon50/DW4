@@ -1,9 +1,8 @@
-package dw.ecommerce.controller.Produto;
+package dw.ecommerce.controller.Categoria;
 
 import java.io.IOException;
 import java.sql.Connection;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dw.ecommerce.dao.AdministradorDAO;
+import dw.ecommerce.dao.CategoriaDAO;
 import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.modelo.Categoria;
 
-@WebServlet("/Excluir")
-public class Excluir extends HttpServlet {
+@WebServlet("/ExcluirCategoria")
+public class ExcluirCategoria extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -23,13 +24,13 @@ public class Excluir extends HttpServlet {
 		Connection connection = (Connection) request.getAttribute("conexao");
 
 		long id = Integer.parseInt(request.getParameter("id"));
-		Administrador admin = new Administrador(id);
-		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
+		Categoria categoria = new Categoria(id);
+		CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 
 		try {
-			administradorDAO.getID(admin);
-			request.setAttribute("administrador", admin);
-			request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/excluir.jsp").forward(request,
+			categoriaDAO.getID(categoria);
+			request.setAttribute("categoria", categoria);
+			request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/excluir.jsp").forward(request,
 					response);
 
 		} catch (Exception e) {
@@ -45,14 +46,14 @@ public class Excluir extends HttpServlet {
 		Connection connection = (Connection) request.getAttribute("conexao");
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		Administrador administrador = new Administrador(id);
+		Categoria categoria = new Categoria(id);
 		try {
-			AdministradorDAO administradorDAO = new AdministradorDAO(connection);
+			CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 			try {
-				administradorDAO.remove(administrador);
+				categoriaDAO.remove(categoria);
 				request.setAttribute("mensagem", "Exclusão Com Sucesso");
 				request.setAttribute("retorna", "ListaContato");
-				request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp").forward(request,response);
+				request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/sucesso.jsp").forward(request,response);
 			} catch (Exception e) {
 				request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);
 			}
