@@ -8,7 +8,8 @@
 </head>
 <body>
 
-            <form action="Produto/Editar" method="post" >
+            <form action="EditarProduto" method="post" >
+	            <input type="hidden" id="id" name="id" value="${produto.id}" />
 	            <div>
 		            <label for="produto">Produto:</label>
 		            <select id="produto" name="produto" >

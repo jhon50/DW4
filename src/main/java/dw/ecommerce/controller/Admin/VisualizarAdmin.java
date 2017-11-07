@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.modelo.Administrador;
 
-@WebServlet("/Visualizar")
+@WebServlet("/VisualizarAdmin")
 public class VisualizarAdmin extends HttpServlet {
 
 	@Override

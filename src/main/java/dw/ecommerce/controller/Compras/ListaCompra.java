@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.modelo.Administrador;
 
-@WebServlet("/Admin")
+@WebServlet("/Compra")
 public class ListaCompra extends HttpServlet {
 
 	@Override

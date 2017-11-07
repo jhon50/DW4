@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>Produtos</h1>
-	<a href="NovoProduto">Novo Produto</a>
+	<a href="IncluirProduto">Novo Produto</a>
 	<table>
 		<tr>
 			<th>ID</th>
@@ -32,9 +32,9 @@
 				<td>${produto.descricao}</td>
 				<td>${produto.preco}</td>
 				<td>
-					<a href="Visualizar?id=${produto.id}">Visualizar</a>
-					<a href="Editar?id=${produto.id}">Editar</a>
-					<a href="Excluir?id=${produto.id}">Excluir</a>
+					<a href="VisualizarProduto?id=${produto.id}">Visualizar</a>
+					<a href="EditarProduto?id=${produto.id}">Editar</a>
+					<a href="ExcluirProduto?id=${produto.id}">Excluir</a>
 				</td>
 			</tr>
 		</c:forEach>

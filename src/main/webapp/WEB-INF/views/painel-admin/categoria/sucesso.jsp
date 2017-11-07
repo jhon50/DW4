@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Categoria ${c_nome} adicionada com sucesso!</h1>
+<h1>Categoria ${categoria_nome} , ${mensagem}!</h1>
 <a href="Categoria">Voltar para lista de categorias</a>
 </body>
 </html>

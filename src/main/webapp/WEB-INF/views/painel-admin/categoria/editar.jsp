@@ -10,7 +10,7 @@
 	<form action="EditarCategoria" method="post">
 		<div>
 			<label for="nome">Nome:</label>
-			<input type="text" id="nome" name="nome" value="${categoria.id}" />
+			<input type="text" id="nome" name="nome" value="${categoria.nome}" />
 			<br />
 		</div>
 		<input type="submit" value="Alterar" />

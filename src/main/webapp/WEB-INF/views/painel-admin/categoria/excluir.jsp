@@ -7,10 +7,11 @@
 </head>
 <body>
 	<h1>Excluir Categoria</h1>
-	<form action="Categoria" method="post">
+	<form action="ExcluirCategoria" method="post">
 		<div>
 			<label for="nome">Nome:</label>
-			<input type="text" id="nome" name="nome" value="${categoria.id}" readonly="true" />
+			<input type="hidden" id="id" name="id" value="${categoria.id}" />
+			<input type="text" id="nome" name="nome" value="${categoria.nome}" readonly="true" />
 			<br />
 		</div>
 		<input type="submit" value="Confirmar exclusão">

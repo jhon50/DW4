@@ -27,7 +27,7 @@ public class VisualizarProduto extends HttpServlet {
 
 		try {
 			produtoDAO.buscaId(produto);
-			request.setAttribute("Produto", produto);
+			request.setAttribute("produto", produto);
 			request.getRequestDispatcher("WEB-INF/views/painel-admin/produto/visualizar.jsp").forward(request, response);
 
 		} catch (Exception e) {

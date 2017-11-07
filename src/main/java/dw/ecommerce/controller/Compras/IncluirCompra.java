@@ -26,7 +26,7 @@ public class IncluirCompra extends HttpServlet {
 			throws ServletException, IOException {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
-		new AdministradorDAO(connection).adiciona(request);
+//		new AdministradorDAO(connection).adiciona(request);
 		request.setAttribute("adm_nome", request.getParameter("nome"));
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/sucesso.jsp").forward(request, response);
 

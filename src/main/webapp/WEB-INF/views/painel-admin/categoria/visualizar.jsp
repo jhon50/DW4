@@ -10,7 +10,7 @@
 	<form action="Categoria" method="post">
 		<div>
 			<label for="nome">Nome:</label>
-			<input type="text" id="nome" name="nome" value="${categoria.id}" readonly="true" />
+			<input type="text" id="nome" name="nome" value="${categoria.nome}" readonly="true" />
 			<br />
 		</div>
 	</form>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Administrador ${adm_nome}, adicionado com sucesso!</h1>
+	<h1>Administrador ${adm_nome}, ${mensagem}!</h1>
 	<a href="Admin">Voltar para lista de administradores</a>
 </body>
 </html>

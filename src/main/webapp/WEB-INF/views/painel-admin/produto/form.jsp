@@ -52,7 +52,7 @@
 	
 </script>
 <body>			
-            <form action="#" method="post" id="form" name="form" onsubmit="return validarFormulario();">
+            <form action="IncluirProduto" method="post" id="form" name="form" onsubmit="return validarFormulario();">
 	            <div>
 		            <label for="categoria">Categoria:</label>
 		            <select id="categoria" name="categoria" onblur="validaCampos(this,document.getElementById('aviso_categoria'))">

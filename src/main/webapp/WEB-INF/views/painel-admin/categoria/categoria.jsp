@@ -13,7 +13,7 @@
 </head>
 <body>
 	<h1>Categorias</h1>
-	<a href="NovaCategoria">Nova Categoria</a>
+	<a href="IncluirCategoria">Nova Categoria</a>
 	<table>
 		<tr>
 
@@ -25,9 +25,9 @@
 			<tr>
 				<td>${categoria.id}</td>
 				<td>${categoria.nome}</td>
-				<td><a href="Visualizar?id=${categoria.id}">Visualizar</a> <a
-					href="Editar?id=${categoria.id}">Editar</a> <a
-					href="Excluir?id=${categoria.id}">Excluir</a></td>
+				<td><a href="VisualizarCategoria?id=${categoria.id}">Visualizar</a> <a
+					href="EditarCategoria?id=${categoria.id}">Editar</a> <a
+					href="ExcluirCategoria?id=${categoria.id}">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</table>
