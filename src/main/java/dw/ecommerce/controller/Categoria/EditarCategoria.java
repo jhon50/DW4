@@ -25,7 +25,7 @@ public class EditarCategoria extends HttpServlet {
 		Categoria categoria = new Categoria(id);
 		CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 		
-		categoriaDAO.getID(categoria);
+		categoriaDAO.buscaId(categoria);
 		request.setAttribute("categoria", categoria);
 		
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/editar.jsp").forward(request, response);;

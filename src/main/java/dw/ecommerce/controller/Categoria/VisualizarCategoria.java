@@ -26,7 +26,7 @@ public class VisualizarCategoria extends HttpServlet {
 		CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 
 		try {
-			categoriaDAO.getID(categoria);
+			categoriaDAO.buscaId(categoria);
 			request.setAttribute("categoria", categoria);
 			request.getRequestDispatcher("WEB-INF/views/painel-admin/categoria/visualizar.jsp").forward(request, response);
 

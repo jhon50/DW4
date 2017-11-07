@@ -165,8 +165,25 @@ public class ProdutoDAO {
             throw new RuntimeException(e);
         }
     }
-	public void buscaId(Produto produto) {
-		// TODO Auto-generated method stub
+	public Produto buscaId(Produto produto) {
+		try {
+			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM produtos WHERE ID = ? ");
+			sql.setFloat(1, produto.getId());
+			ResultSet rs = sql.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					produto.setId(rs.getLong("id"));
+	                produto.setCategoria(rs.getString("categoria"));
+	                produto.setNome(rs.getString("nome"));
+	                produto.setDescricao(rs.getString("descricao"));
+	                produto.setPreco(rs.getDouble("preco"));
+				}
+			}
+			return produto;
+
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
 		
 	}
 

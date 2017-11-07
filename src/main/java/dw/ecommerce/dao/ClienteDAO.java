@@ -15,99 +15,121 @@ import java.util.List;
  */
 public class ClienteDAO {
 
-    private Connection connection;
+	private Connection connection;
 
-    public ClienteDAO(Connection connection) {
-        this.connection = connection;
-    }
+	public ClienteDAO(Connection connection) {
+		this.connection = connection;
+	}
 
-    public void adiciona(Cliente usuario) {
+	public void adiciona(Cliente usuario) {
 
-        String sql = "insert into clientes(nome,email,senha,cartaoCredito,cpf) values(?,?,?,?,?)";
+		String sql = "insert into clientes(nome,email,senha,cartaoCredito,cpf) values(?,?,?,?,?)";
 
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getEmail());
-            stmt.setString(3, usuario.getSenha());
-            stmt.setString(4, usuario.getCartaoCredito());
-            stmt.setString(5, usuario.getCpf());
+			stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getEmail());
+			stmt.setString(3, usuario.getSenha());
+			stmt.setString(4, usuario.getCartaoCredito());
+			stmt.setString(5, usuario.getCpf());
 
-            stmt.execute();
-            stmt.close();
+			stmt.execute();
+			stmt.close();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
-    }
+	}
 
-    public void atualiza(Cliente usuario) {
+	public void atualiza(Cliente usuario) {
 
-        String sql = "update clientes set nome=?, email=?, senha=?, cartaoCredito=?, cpf=? where id=?";
+		String sql = "update clientes set nome=?, email=?, senha=?, cartaoCredito=?, cpf=? where id=?";
 
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getEmail());
-            stmt.setString(3, usuario.getSenha());
-            stmt.setString(4, usuario.getCartaoCredito());
-            stmt.setString(5, usuario.getCpf());
-            stmt.setLong(6, usuario.getId());
+			stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getEmail());
+			stmt.setString(3, usuario.getSenha());
+			stmt.setString(4, usuario.getCartaoCredito());
+			stmt.setString(5, usuario.getCpf());
+			stmt.setLong(6, usuario.getId());
 
-            stmt.execute();
-            stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public void remove(Cliente usuario) {
+	public void remove(Cliente usuario) {
 
-        try {
-            PreparedStatement stmt = connection.prepareStatement("delete from clientes where id=?");
-            stmt.setLong(1, usuario.getId());
+		try {
+			PreparedStatement stmt = connection.prepareStatement("delete from clientes where id=?");
+			stmt.setLong(1, usuario.getId());
 
-            stmt.execute();
-            stmt.close();
+			stmt.execute();
+			stmt.close();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public List<Cliente> getLista() {
-        try {
-            List<Cliente> usuarios = new ArrayList<Cliente>();
-            PreparedStatement stmt;
-            stmt = this.connection.prepareStatement("select * from clientes");
-            ResultSet rs = stmt.executeQuery();
+	public List<Cliente> getLista() {
+		try {
+			List<Cliente> clientes = new ArrayList<Cliente>();
+			PreparedStatement stmt;
+			stmt = this.connection.prepareStatement("select * from clientes");
+			ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
+			while (rs.next()) {
 
-                Cliente usuario = new Cliente();
+				Cliente cliente = new Cliente();
 
-                usuario.setId(rs.getLong("ID"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("email"));
-                usuarios.add(usuario);
-            }
+				cliente.setId(rs.getLong("ID"));
+				cliente.setNome(rs.getString("nome"));
+				cliente.setEmail(rs.getString("email"));
+				cliente.setSenha(rs.getString("senha"));
+				cliente.setCartaoCredito(rs.getString("cartaoCredito"));
+				cliente.setCpf(rs.getString("cpf"));
 
-            rs.close();
-            stmt.close();
-            return usuarios;
+				clientes.add(cliente);
+			}
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+			rs.close();
+			stmt.close();
+			return clientes;
 
-    }
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
-	public void buscaId(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
+	}
+
+	public Cliente buscaId(Cliente cliente) {
+		try {
+			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM clientes WHERE ID = ? ");
+			sql.setFloat(1, cliente.getId());
+			ResultSet rs = sql.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					cliente.setId(rs.getLong("ID"));
+					cliente.setNome(rs.getString("nome"));
+					cliente.setEmail(rs.getString("email"));
+					cliente.setSenha(rs.getString("senha"));
+					cliente.setCartaoCredito(rs.getString("cartaoCredito"));
+					cliente.setCpf(rs.getString("cpf"));
+				}
+			}
+			return cliente;
+
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+
 	}
 
 }

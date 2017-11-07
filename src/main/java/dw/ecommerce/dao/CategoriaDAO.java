@@ -100,7 +100,7 @@ public class CategoriaDAO {
         }
     }
     
-    public Categoria getID(Categoria categoria) {
+    public Categoria buscaId(Categoria categoria) {
 		try {
 			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM categorias WHERE ID = ? ");
 			sql.setFloat(1, categoria.getId());
