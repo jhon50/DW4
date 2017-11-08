@@ -12,6 +12,8 @@
         <title>Painel de Administração | Compras</title>
     </head>
     <body>
+    	<jsp:include page="/master_layout.jsp" />
+    
         <h1>Compras</h1>
         <br />
 	<a href="Novocompra">Novo compra</a>

@@ -1,0 +1,57 @@
+body {
+	font-family: "calibri", Garamond;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+
+.button {
+	font-size: 16px;
+	background-color: #333333;
+    text-align: center;
+    border: none;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button.button-large {
+	padding: 12px 30px;
+}
+
+.button.button-small {
+	padding: 5px 15px;
+}
+
+.button:hover, .button-small:hover {
+	background-color: grey;
+}
+
+.button:active, .button-small:active {
+	background-color: lightgrey;
+}
+
+.index-container {
+	width: 50%;
+	margin: auto;
+}

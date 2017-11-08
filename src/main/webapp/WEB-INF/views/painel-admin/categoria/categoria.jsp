@@ -12,25 +12,25 @@
 <title>Painel de Administração | Categorias</title>
 </head>
 <body>
-	<h1>Categorias</h1>
-	<a href="IncluirCategoria">Nova Categoria</a>
-	<table>
-		<tr>
-
-			<th>ID</th>
-			<th>Nome</th>
-
-		</tr>
-		<c:forEach var="categoria" items="${categorias}">
+	<jsp:include page="/master_layout.jsp" />
+	<div class="index-container">
+		<h1>Categorias</h1>
+		<a class="button button-large" href="IncluirCategoria">Nova Categoria</a>
+		<table>
 			<tr>
-				<td>${categoria.id}</td>
-				<td>${categoria.nome}</td>
-				<td><a href="VisualizarCategoria?id=${categoria.id}">Visualizar</a> <a
-					href="EditarCategoria?id=${categoria.id}">Editar</a> <a
-					href="ExcluirCategoria?id=${categoria.id}">Excluir</a></td>
+				<th>ID</th>
+				<th>Nome</th>
 			</tr>
-		</c:forEach>
-	</table>
-
+			<c:forEach var="categoria" items="${categorias}">
+				<tr>
+					<td>${categoria.id}</td>
+					<td>${categoria.nome}</td>
+					<td><a class="button button-small" href="VisualizarCategoria?id=${categoria.id}">Visualizar</a>
+						<a class="button button-small" href="EditarCategoria?id=${categoria.id}">Editar</a>
+						<a class="button button-small" href="ExcluirCategoria?id=${categoria.id}">Excluir</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
