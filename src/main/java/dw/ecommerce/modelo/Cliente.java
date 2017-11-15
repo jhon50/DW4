@@ -5,10 +5,6 @@
  */
 package dw.ecommerce.modelo;
 
-/**
- *
- * @author Bruno Dutra
- */
 public class Cliente {
 
 	private Long id;

@@ -6,38 +6,36 @@
 <title>LojaDW | Formulário Cliente</title>
 </head>
 <body>
-	<form action="" method="post">
-		<div>
+	<jsp:include page="/master_layout.jsp" />
+	<div class="container">
+		<h1>Novo cliente</h1>
+		<form action="" method="post">
+		<div class="row">
 			<label for="nome">Nome:</label>
 			<input id="nome" name="nome" type="text" />
-			<br />
 		</div>
-		<div>
+		<div class="row">
 			<label for="email">Email:</label>
 			<input id="email" name="email" type="text" />
-			<br />
 		</div>
-		<div>
+		<div class="row">
 			<label for="cpf">CPF:</label>
 			<input id="cpf" name="cpf" type="text" />
-			<br />
 		</div>
-		<div>
+		<div class="row">
 			<label for="cartaoCredito">Cartão de Crédito:</label>
 			<input id="cartaoCredito" name="cartaoCredito" type="text" />
-			<br />
 		</div>
-		<div>
+		<div class="row">
 			<label for="senha">Senha:</label>
-			<input id="senha" name="senha" type="password" />
-			<br />
+			<input id="senha" name="senha" type="password" />			
 		</div>
-		<div>
+		<div class="row">
 			<label for="rep_senha">Repetir a senha:</label>
 			<input id="rep_senha" name="rep_senha" type="password" />
-			<br />
 		</div>
-		<input type="submit" value="Adicionar" />
+		<button class="button button-large" onclick="validateForm()" type="button">Adicionar</button>
 	</form>
+	</div>
 </body>
 </html>

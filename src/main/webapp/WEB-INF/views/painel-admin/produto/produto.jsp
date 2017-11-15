@@ -13,31 +13,34 @@
 <title>Painel de Administração | Produtos</title>
 </head>
 <body>
+	<jsp:include page="/master_layout.jsp" />
+	<div class="container">
 	<h1>Produtos</h1>
-	<a href="IncluirProduto">Novo Produto</a>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Nome</th>
-			<th>Categoria</th>
-			<th>Descrição</th>
-			<th>Preço</th>
-			<th>Ações</th>
-		</tr>
-		<c:forEach var="produto" items="${produtos}">
+	<a class="button button-large" href="IncluirProduto">Adicionar</a>
+		<table>
 			<tr>
-				<td>${produto.id}</td>
-				<td>${produto.nome}</td>
-				<td>${produto.categoria}</td>
-				<td>${produto.descricao}</td>
-				<td>${produto.preco}</td>
-				<td>
-					<a href="VisualizarProduto?id=${produto.id}">Visualizar</a>
-					<a href="EditarProduto?id=${produto.id}">Editar</a>
-					<a href="ExcluirProduto?id=${produto.id}">Excluir</a>
-				</td>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Descrição</th>
+				<th>Preço</th>
+				<th>Ações</th>
 			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach var="produto" items="${produtos}">
+				<tr>
+					<td>${produto.id}</td>
+					<td>${produto.nome}</td>
+					<td>${produto.categoria}</td>
+					<td>${produto.descricao}</td>
+					<td>${produto.preco}</td>
+					<td>
+						<a class="button button-small" href="VisualizarProduto?id=${produto.id}">Visualizar</a>
+						<a class="button button-small" href="EditarProduto?id=${produto.id}">Editar</a>
+						<a class="button button-small" href="ExcluirProduto?id=${produto.id}">Excluir</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>
