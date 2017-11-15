@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dw.ecommerce.dao.AdministradorDAO;
+import dw.ecommerce.dao.CompraDAO;
 import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.modelo.Compra;
 
 @WebServlet("/Compra")
 public class ListaCompra extends HttpServlet {
@@ -26,9 +28,9 @@ public class ListaCompra extends HttpServlet {
 			throws ServletException, IOException {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
-
-		List<Administrador> administradores = new AdministradorDAO(connection).getLista();
-		request.setAttribute("administradores", administradores);
+		List<Compra> compras = new CompraDAO(connection).getLista();
+		
+		request.setAttribute("compras", compras);
 
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/compra.jsp").forward(request, response);
 	}
