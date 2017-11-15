@@ -16,9 +16,10 @@
 				<label for="nome">Nome:</label> <input type="text" id="nome"
 					name="nome" value="${categoria.nome}" /> <br />
 			</div>
-			<input type="submit" value="Alterar" />
+			<button class="button button-large" type="submit"
+				value="Alterar">Alterar</button>
 		</form>
-		<a href="Categoria">Retornar</a>
+		<a class="button button-large" href="Categoria">Retornar</a>
 	</div>
 
 </body>

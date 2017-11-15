@@ -39,9 +39,10 @@
 			<!-- 		<label>Repetir a senha:</label> -->
 			<%-- 		<input type="password" value="${cliente.repSenha}" /> --%>
 			<!-- 		<br /> -->
-			<input type="submit" value="Alterar" />
+			<button class="button button-large" type="submit"
+				value="Alterar">Alterar</button>
 		</form>
-		<a href="Cliente">Retornar</a>
+		<a class="button button-large" href="Cliente">Retornar</a>
 	</div>	
 </body>
 </html>

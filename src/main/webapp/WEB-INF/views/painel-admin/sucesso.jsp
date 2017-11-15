@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${tipo} ${nome}, ${mensagem}!</h1>
-	<a href="${retorna}">Voltar para lista de ${tipo}</a>
+	<jsp:include page="/master_layout.jsp" />
+	<div class="container">
+		<h1>${tipo} ${nome}, ${mensagem}!</h1>
+		<a class="button button-large" href="${retorna}">Voltar para lista de ${tipo}</a>
+	</div>
 </body>
 </html>

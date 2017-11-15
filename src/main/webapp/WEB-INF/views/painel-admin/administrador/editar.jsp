@@ -31,9 +31,10 @@
 	<!-- 			<input type="password" id="rep_senha" name="rep_senha" /> -->
 	<!-- 			<br /> -->
 	<!-- 		</div> -->
-			<input type="submit" value="Alterar" />
+			<button class="button button-large" type="submit"
+				value="Alterar">Alterar</button>
 		</form>
-		<a href="Admin">Retornar</a>
+		<a class="button button-large" href="Admin">Retornar</a>
 	</div>	
 </body>
 </html>
