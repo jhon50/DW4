@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Editar Cliente</title>
+<title>Painel de Administração | Editar Cliente</title>
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />

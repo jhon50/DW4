@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Formulário Compra</title>
+<title>Painel de Administração | Formulário Compra</title>
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />

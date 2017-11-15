@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>LojaDW | Formulário Administrador</title>
+<title>Painel de Administração | Formulário Administrador</title>
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />

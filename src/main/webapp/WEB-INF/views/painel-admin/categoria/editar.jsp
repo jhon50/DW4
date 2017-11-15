@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Editar Categoria</title>
+<title>Painel de Administração | Editar Categoria</title>
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />

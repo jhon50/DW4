@@ -3,9 +3,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>LojaDW | Formulário Categoria</title>
+<title>Painel de Administração | Formulário Categoria</title>
 </head>
 <script type="text/javascript">
+	
 </script>
 <body>
 	<jsp:include page="/master_layout.jsp" />
@@ -14,12 +15,14 @@
 		<form action="IncluirCategoria" method="post" id="form" name="form">
 			<div>
 				<label for="nome">Nome:</label>
-				<input type="text" id="nome" name="nome"/>
-				<br /> <span id="aviso_nome"></span>
+				<input type="text" id="nome" name="nome" />
+				<br /> 
+				<span id="aviso_nome"></span>
 			</div>
-			<br>
+			<span>${erro}</span>
+			<br> 
 			<button class="button button-large" onclick="validateForm()" type="button">Adicionar</button>
 		</form>
-	</div>	
+	</div>
 </body>
 </html>
