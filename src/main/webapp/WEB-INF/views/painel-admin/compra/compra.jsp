@@ -10,7 +10,7 @@
 	<div class="container">
 		<h1>Compras</h1>
 		<br /> 
-		<a class="button button-large" href="Novocompra">Adicionar</a>
+		<a class="button button-large" href="IncluirCompra">Adicionar</a>
 		<table>
 			<tr>
 				<th>ID</th>

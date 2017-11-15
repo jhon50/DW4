@@ -5,6 +5,7 @@
  */
 package dw.ecommerce.modelo;
 
+import java.sql.Date;
 import java.util.Calendar;
 
 /**
@@ -19,7 +20,22 @@ public class Compra {
     private Double valor;
     private Calendar data;
 
-    public Long getId() {
+    public Compra(){
+    	
+    }
+    public Compra(long id) {
+		this.id = id;
+	}
+
+	
+	public Compra(Long id, String produto, String clienteNome, Double valor, Calendar data) {
+		this.id = id;
+		this.produto = produto;
+		this.clienteNome = clienteNome;
+		this.valor = valor;
+		this.data = data;
+	}
+	public Long getId() {
         return id;
     }
 
@@ -62,6 +78,17 @@ public class Compra {
     public void setData(Calendar data) {
         this.data = data;
     }
+	public static boolean valida(Compra compra) {
+		String cliente = compra.getClienteNome();
+		String produto = compra.getProduto();
+		Calendar data = compra.getData();
+		Double valor = compra.getValor();
+		
+		if ((cliente.isEmpty()) || (produto.isEmpty()) || (data == null) || (valor.isNaN())) {
+			return true;
+		}
+		return false;
+	}
     
     
     

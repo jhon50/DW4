@@ -119,4 +119,29 @@ public class CompraDAO {
         }
     }
 
+	public Compra getID(Compra compra) {
+		try {
+			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM compras WHERE ID = ? ");
+			sql.setFloat(1, compra.getId());
+			ResultSet rs = sql.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+
+					compra.setClienteNome(rs.getString("cliente"));
+					compra.setProduto(rs.getString("produto"));
+					compra.setValor(rs.getDouble("valor"));
+					Calendar data = Calendar.getInstance();
+	                data.setTime(rs.getDate("data"));
+	                compra.setData(data);
+
+				}
+			}
+			return compra;
+
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+		
+	}
+
 }
