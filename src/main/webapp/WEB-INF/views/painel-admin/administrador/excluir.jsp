@@ -30,7 +30,7 @@
 
 		</form>
 		<div class="row">
-			<a class="button button-large" href="Cliente">Retornar</a>
+			<a class="button button-large" href="Admin">Retornar</a>
 		</div>
 	</div>
 </body>

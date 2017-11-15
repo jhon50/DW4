@@ -22,7 +22,7 @@
 
 		</form>
 		<div class="row">
-			<a class="button button-large" href="Cliente">Retornar</a>
+			<a class="button button-large" href="Categoria">Retornar</a>
 		</div>
 	</div>
 </body>

@@ -38,6 +38,7 @@
 			<button class="button button-large" type="submit"
 				value="Alterar">Alterar</button>
 		</form>
+		<a class="button button-large" href="Produto">Retornar</a>
 	</div>
 </body>
 </html>
