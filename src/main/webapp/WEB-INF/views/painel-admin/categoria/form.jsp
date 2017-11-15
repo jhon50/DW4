@@ -6,37 +6,20 @@
 <title>LojaDW | Formulário Categoria</title>
 </head>
 <script type="text/javascript">
-	function validaCampos(campoEntrada, textoMsg) {
-
-		if (campoEntrada.value.length == 0) {
-			textoMsg.innerHTML = "Campo Obrigatório";
-		}
-
-		else {
-			textoMsg.innerHTML = "";
-		}
-
-	}
-
-	function validarFormulario() {
-
-		if (form.nome.value.length == 0) {
-			alert("FAVOR PREENCHER O CAMPO NOME");
-			form.nome.focus();
-			return false;
-		}
-
-		return true;
-	}
 </script>
 <body>
-	<form action="IncluirCategoria" method="post" id="form" name="form" onsubmit="return validarFormulario();">
-		<div>
-			<label for="nome">Nome:</label>
-			<input type="text" id="nome" name="nome" onblur="validaCampos(this,document.getElementById('aviso_nome'))" />
-			<br /> <span id="aviso_nome"></span>
-		</div>
-		<input type="submit" value="Adicionar" />
-	</form>
+	<jsp:include page="/master_layout.jsp" />
+	<div class="container">
+		<h1>Nova categoria</h1>
+		<form action="IncluirCategoria" method="post" id="form" name="form">
+			<div>
+				<label for="nome">Nome:</label>
+				<input type="text" id="nome" name="nome"/>
+				<br /> <span id="aviso_nome"></span>
+			</div>
+			<br>
+			<button class="button button-large" onclick="validateForm()" type="button">Adicionar</button>
+		</form>
+	</div>	
 </body>
 </html>

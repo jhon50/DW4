@@ -1,8 +1,3 @@
-<%-- 
-    Document   : clientes
-    Created on : 28/10/2017, 01:40:05
-    Author     : Bruno Dutra
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -13,9 +8,10 @@
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />
-	<div class="index-container">
+	<div class="container">
 		<h1>Clientes</h1>
-		<br /> <a class="button button-large" href="IncluirCliente">Novo Cliente</a>
+		<br /> 
+		<a class="button button-large" href="IncluirCliente">Adicionar</a>
 		<table>
 			<tr>
 				<th>ID</th>

@@ -6,31 +6,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Editar Administrador</h1>
-	<form action="EditarAdmin" method="post">
-		<input type="hidden" id="id" name="id" value="${administrador.id}" />
-		<div>
-			<label for="nome">Nome:</label>
-			<input type="text" id="nome" name="nome" value="${administrador.nome}" />
-			<br />
-		</div>
-		<div>
-			<label for="email">Email:</label>
-			<input type="text" id="email" name="email" value="${administrador.email}" />
-			<br />
-		</div>
-		<div>
-			<label for="senha">Senha:</label>
-			<input type="text" id="senha" name="senha" value="${administrador.senha}" />
-			<br />
-		</div>
-<!-- 		<div> -->
-<!-- 			<label for="rep_senha">Repetir a senha:</label> -->
-<!-- 			<input type="password" id="rep_senha" name="rep_senha" /> -->
-<!-- 			<br /> -->
-<!-- 		</div> -->
-		<input type="submit" value="Alterar" />
-	</form>
-	<a href="Admin">Retornar</a>
+	<jsp:include page="/master_layout.jsp" />
+	<div class="container">
+		<h1>Editar Administrador</h1>
+		<form action="EditarAdmin" method="post">
+			<input type="hidden" id="id" name="id" value="${administrador.id}" />
+			<div>
+				<label for="nome">Nome:</label>
+				<input type="text" id="nome" name="nome" value="${administrador.nome}" />
+				<br />
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="text" id="email" name="email" value="${administrador.email}" />
+				<br />
+			</div>
+			<div>
+				<label for="senha">Senha:</label>
+				<input type="text" id="senha" name="senha" value="${administrador.senha}" />
+				<br />
+			</div>
+	<!-- 		<div> -->
+	<!-- 			<label for="rep_senha">Repetir a senha:</label> -->
+	<!-- 			<input type="password" id="rep_senha" name="rep_senha" /> -->
+	<!-- 			<br /> -->
+	<!-- 		</div> -->
+			<input type="submit" value="Alterar" />
+		</form>
+		<a href="Admin">Retornar</a>
+	</div>	
 </body>
 </html>

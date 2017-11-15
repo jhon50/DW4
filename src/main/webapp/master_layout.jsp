@@ -9,3 +9,6 @@
 	<li><a href="Produto">Produtos</a></li>
 	<li><a href="Admin">Administradores</a></li>
 </ul>
+<script>
+	<%@include file="validator.js" %>
+</script>

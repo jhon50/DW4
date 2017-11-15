@@ -1,8 +1,3 @@
-<%-- 
-    Document   : categorias
-    Created on : 28/10/2017, 01:39:55
-    Author     : Bruno Dutra
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -13,9 +8,9 @@
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />
-	<div class="index-container">
+	<div class="container">
 		<h1>Categorias</h1>
-		<a class="button button-large" href="IncluirCategoria">Nova Categoria</a>
+		<a class="button button-large" href="IncluirCategoria">Adicionar</a>
 		<table>
 			<tr>
 				<th>ID</th>
@@ -25,9 +20,11 @@
 				<tr>
 					<td>${categoria.id}</td>
 					<td>${categoria.nome}</td>
-					<td><a class="button button-small" href="VisualizarCategoria?id=${categoria.id}">Visualizar</a>
+					<td class="action-buttons">
+						<a class="button button-small" href="VisualizarCategoria?id=${categoria.id}">Visualizar</a>
 						<a class="button button-small" href="EditarCategoria?id=${categoria.id}">Editar</a>
-						<a class="button button-small" href="ExcluirCategoria?id=${categoria.id}">Excluir</a></td>
+						<a class="button button-small" href="ExcluirCategoria?id=${categoria.id}">Excluir</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
