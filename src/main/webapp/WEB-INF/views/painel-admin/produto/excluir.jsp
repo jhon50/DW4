@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,7 @@
 			</div>
 			<div>
 				<label for="senha">Preço:</label> <input type="text" id="preco"
-					name="preco" value="${produto.preco}" readonly="true" /> <br />
+					name="preco" value="<fmt:formatNumber value="${produto.preco}" type="currency"/>" readonly="true" /> <br />
 			</div>
 			<div class="row"></div>
 			<button class="button button-large" type="submit"

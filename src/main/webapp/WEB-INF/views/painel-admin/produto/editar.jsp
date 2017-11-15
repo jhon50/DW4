@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,8 +13,8 @@
 		<form action="EditarProduto" method="post">
 			<input type="hidden" id="id" name="id" value="${produto.id}" />
 			<div>
-				<label for="categoria">Categoria:</label> <select id="categoria"
-					name="categoria">
+				<label for="categoria">Categoria:</label>
+				<select id="categoria" name="categoria">
 					<option>${produto.categoria}</option>
 					<c:forEach var="categoria" items="${categorias}">
 						<option>${categoria.nome}</option>
@@ -23,8 +22,9 @@
 				</select> <br />
 			</div>
 			<div>
-				<label for="nome">Nome:</label> <input type="text" id="nome"
-					name="nome" value="${produto.nome}" /> <br />
+				<label for="nome">Nome:</label>
+				<input type="text" id="nome" name="nome" value="${produto.nome}" />
+				<br />
 			</div>
 			<div>
 				<label for="descricao">Descrição:</label>
@@ -32,11 +32,11 @@
 				<br />
 			</div>
 			<div>
-				<label for="preco">Preço:</label> <input type="text" id="preco"
-					name="preco" value="${produto.preco}" /> <br />
+				<label for="preco">Preço:</label>
+				<input type="text" id="preco" name="preco" value="${produto.preco}" />
+				<br />
 			</div>
-			<button class="button button-large" type="submit"
-				value="Alterar">Alterar</button>
+			<button class="button button-large" type="submit" value="Alterar">Alterar</button>
 		</form>
 		<a class="button button-large" href="Produto">Retornar</a>
 	</div>

@@ -5,7 +5,6 @@
  */
 package dw.ecommerce.modelo;
 
-import java.sql.Date;
 import java.util.Calendar;
 
 /**
@@ -30,6 +29,12 @@ public class Compra {
 	
 	public Compra(Long id, String produto, String clienteNome, Double valor, Calendar data) {
 		this.id = id;
+		this.produto = produto;
+		this.clienteNome = clienteNome;
+		this.valor = valor;
+		this.data = data;
+	}
+	public Compra(String produto, String clienteNome, Double valor, Calendar data) {
 		this.produto = produto;
 		this.clienteNome = clienteNome;
 		this.valor = valor;

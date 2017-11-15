@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
 					<td>${produto.nome}</td>
 					<td>${produto.categoria}</td>
 					<td>${produto.descricao}</td>
-					<td>${produto.preco}</td>
+					<td><fmt:formatNumber value="${produto.preco}" type="currency"/></td>
 					<td>
 						<a class="button button-small" href="VisualizarProduto?id=${produto.id}">Visualizar</a>
 						<a class="button button-small" href="EditarProduto?id=${produto.id}">Editar</a>

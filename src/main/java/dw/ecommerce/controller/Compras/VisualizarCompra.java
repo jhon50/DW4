@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
-import dw.ecommerce.modelo.Administrador;
+import dw.ecommerce.dao.CompraDAO;
+import dw.ecommerce.modelo.Compra;
 
-@WebServlet("/Visualizar")
+@WebServlet("/VisualizarCompra")
 public class VisualizarCompra extends HttpServlet {
 
 	/**
@@ -27,13 +27,14 @@ public class VisualizarCompra extends HttpServlet {
 		Connection connection = (Connection) request.getAttribute("conexao");
 
 		long id = Integer.parseInt(request.getParameter("id"));
-		Administrador admin = new Administrador(id);
-		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
+		
+		Compra compra = new Compra(id);
+		CompraDAO compraDAO = new CompraDAO(connection);
 
 		try {
-			administradorDAO.getID(admin);
-			request.setAttribute("administrador", admin);
-			request.getRequestDispatcher("WEB-INF/views/painel-admin/administrador/visualizar.jsp").forward(request, response);
+			compraDAO.getID(compra);
+			request.setAttribute("compra", compra);
+			request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/visualizar.jsp").forward(request, response);
 
 		} catch (Exception e) {
 			request.getRequestDispatcher("WEB-INF/views/painel-admin/erro.jsp").forward(request, response);

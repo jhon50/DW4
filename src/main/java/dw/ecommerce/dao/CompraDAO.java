@@ -30,7 +30,7 @@ public class CompraDAO {
 
     public void adiciona(Compra compra) {
 
-        String sql = "insert into compras(produtos, cliente, valor, data) values(?,?,?,?)";
+        String sql = "insert into compras(produto, cliente, valor, data) values(?,?,?,?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class CompraDAO {
 
     public void atualiza(Compra compra) {
 
-        String sql = "update compras set produto=?, clienteNome=?, valor=?, data=? where id=?";
+        String sql = "update compras set produto=?, cliente=?, valor=?, data=? where id=?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class CompraDAO {
                 Compra compra = new Compra();
                 compra.setId(rs.getLong("id"));
                 compra.setProduto(rs.getString("produto"));
-                compra.setClienteNome(rs.getString("clienteNome"));
+                compra.setClienteNome(rs.getString("cliente"));
                 compra.setValor(rs.getDouble("valor"));
 
                 Calendar data = Calendar.getInstance();

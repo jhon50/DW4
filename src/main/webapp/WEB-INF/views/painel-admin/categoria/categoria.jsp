@@ -15,6 +15,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
+				<th>Ações</th>
 			</tr>
 			<c:forEach var="categoria" items="${categorias}">
 				<tr>

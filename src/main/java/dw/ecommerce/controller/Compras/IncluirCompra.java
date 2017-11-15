@@ -2,19 +2,23 @@ package dw.ecommerce.controller.Compras;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dw.ecommerce.dao.ClienteDAO;
 import dw.ecommerce.dao.CompraDAO;
+import dw.ecommerce.dao.ProdutoDAO;
+import dw.ecommerce.modelo.Cliente;
 import dw.ecommerce.modelo.Compra;
+import dw.ecommerce.modelo.Produto;
 
 @WebServlet("/IncluirCompra")
 public class IncluirCompra extends HttpServlet {
@@ -28,6 +32,13 @@ public class IncluirCompra extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		Connection connection = (Connection) request.getAttribute("conexao");
+		
+		List<Produto> produtos = new ProdutoDAO(connection).getLista();
+		List<Cliente> clientes = new ClienteDAO(connection).getLista();
+		
+		request.setAttribute("produtos", produtos);
+		request.setAttribute("clientes", clientes);
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/form.jsp").forward(request, response);
 	}
 
@@ -38,15 +49,18 @@ public class IncluirCompra extends HttpServlet {
 		try {
 			Connection connection = (Connection) request.getAttribute("conexao");
 
-			long id = Integer.parseInt(request.getParameter("id"));
 			String produto = request.getParameter("produto");
-			String clienteNome = request.getParameter("clienteNome");
+			String clienteNome = request.getParameter("cliente");
 			Double valor = Double.parseDouble(request.getParameter("valor"));
-			Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("data"));
-			Calendar data = Calendar.getInstance();
+			//Fazendo a Conversão da Data
+			String dataEmTexto = request.getParameter("data");
+			Calendar data = null;
+			
+			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
+			data = Calendar.getInstance();
 			data.setTime(date);
 
-			Compra compra = new Compra(id, produto, clienteNome, valor, data);
+			Compra compra = new Compra(produto, clienteNome, valor, data);
 			new CompraDAO(connection).adiciona(compra);
 		
 			request.setAttribute("tipo", "Compra");
@@ -57,8 +71,7 @@ public class IncluirCompra extends HttpServlet {
 			
 		} catch (Exception e) {
 			request.setAttribute("erro", "Compra inválida");
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/form.jsp");
-			rd.forward(request, response);
+			doGet(request, response);
 		}
 
 	}
