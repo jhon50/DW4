@@ -14,10 +14,9 @@
 		<form action="IncluirCompra" method="post" id="form" name="form" onsubmit="return validarFormulario();">
 			<div class="row">
 				<label for="produto">Produto:</label>
-				<select id="produto" name="produto" onblur="validaCampos(this,document.getElementById('aviso_produto'))">
-					<option></option>
+				<select id="produto" name="produto" multiple="multiple" style="width: 200px;" "onblur="validaCampos(this,document.getElementById('aviso_produto'))">
 					<c:forEach var="produto" items="${produtos}">
-						<option>${produto.nome}</option>
+						<option label="${produto.nome}">${produto.id}</option>
 					</c:forEach>
 				</select> <br /> <span id="aviso_produto"></span>
 			</div>
@@ -30,11 +29,6 @@
 					</c:forEach>
 				</select> <br /> <span id="aviso_cliente"></span>
 			</div>			
-			<div class="row">
-				<label for="valor">Valor:</label>
-				<input type="text" id="valor" name="valor" onblur="validaCampos(this,document.getElementById('aviso_valor'))" />
-				<br /> <span id="aviso_valor"></span>
-			</div>
 			<div class="row">
 				<label for="data">Data:</label>
 				<input type="text" id="data" name="data" onblur="validaCampos(this,document.getElementById('aviso_data'))" />

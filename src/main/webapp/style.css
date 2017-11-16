@@ -25,6 +25,10 @@ li a:hover {
     background-color: #111111;
 }
 
+select[multiple] {
+    width: 7em;
+}
+
 .button {
 	font-size: 16px;
 	background-color: #333333;
@@ -82,7 +86,7 @@ table tr:first-child {
 	margin: 10px 0 10px 0
 } 
 
-form input, select, textarea {
+form input, textarea {
 	float: right;
 	margin-right:50%;
 	border:1px solid black;

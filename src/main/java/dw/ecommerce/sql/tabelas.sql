@@ -12,6 +12,7 @@ CREATE TABLE categorias(
 
 CREATE TABLE compras(
 	id SERIAL PRIMARY KEY,
+	numero INTEGER NOT NULL
 	produto VARCHAR(50) NOT NULL,
 	cliente VARCHAR(50) NOT NULL,
 	valor REAL NOT NULL,

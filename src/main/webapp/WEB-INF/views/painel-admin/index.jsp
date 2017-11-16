@@ -7,5 +7,6 @@
 </head>
 <body>
 	<jsp:include page="/master_layout.jsp" />
+	<h1>BEM-VINDO AO PAINEL DE ADMINISTRAÇÃO</h1>
 </body>
 </html>

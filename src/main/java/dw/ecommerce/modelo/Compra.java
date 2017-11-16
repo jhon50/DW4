@@ -14,6 +14,7 @@ import java.util.Calendar;
 public class Compra {
   
     private Long id;
+    private int numero;
     private String produto;
     private String clienteNome;
     private Double valor;
@@ -34,8 +35,9 @@ public class Compra {
 		this.valor = valor;
 		this.data = data;
 	}
-	public Compra(String produto, String clienteNome, Double valor, Calendar data) {
+	public Compra(String produto, int numero, String clienteNome, Double valor, Calendar data) {
 		this.produto = produto;
+		this.numero = numero;
 		this.clienteNome = clienteNome;
 		this.valor = valor;
 		this.data = data;
@@ -93,6 +95,12 @@ public class Compra {
 			return true;
 		}
 		return false;
+	}
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
     
     

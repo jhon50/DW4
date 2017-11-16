@@ -17,16 +17,14 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Produto</th>
 				<th>Cliente</th>
-				<th>Valor</th>
+				<th>Valor Total</th>
 				<th>Data</th>
 				<th>Ações</th>
 			</tr>
 			<c:forEach var="compra" items="${compras}">
 				<tr>
-					<td>${compra.id}</td>
-					<td>${compra.produto}</td>
+					<td>${compra.numero}</td>
 					<td>${compra.clienteNome}</td>
 					<td><fmt:formatNumber value="${compra.valor}" type="currency"/></td>
 					<td><fmt:formatDate value="${compra.data.time}" pattern="dd/MM/yyyy"/></td>

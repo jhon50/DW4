@@ -2,9 +2,9 @@ package dw.ecommerce.controller.Compras;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,10 +33,10 @@ public class IncluirCompra extends HttpServlet {
 			throws ServletException, IOException {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
-		
+
 		List<Produto> produtos = new ProdutoDAO(connection).getLista();
 		List<Cliente> clientes = new ClienteDAO(connection).getLista();
-		
+
 		request.setAttribute("produtos", produtos);
 		request.setAttribute("clientes", clientes);
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/form.jsp").forward(request, response);
@@ -48,27 +48,44 @@ public class IncluirCompra extends HttpServlet {
 
 		try {
 			Connection connection = (Connection) request.getAttribute("conexao");
-
-			String produto = request.getParameter("produto");
-			String clienteNome = request.getParameter("cliente");
-			Double valor = Double.parseDouble(request.getParameter("valor"));
-			//Fazendo a Conversão da Data
-			String dataEmTexto = request.getParameter("data");
-			Calendar data = null;
 			
-			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
-			data = Calendar.getInstance();
-			data.setTime(date);
+			CompraDAO compraDAO = new CompraDAO(connection);
+			
+			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+			
+			List<Produto> produtos = null;
+			
+			String[] p = request.getParameterValues("produto");
+			int numero = compraDAO.getNumero() + 1;
+			
+			for (String string : p) {
+				Produto produto = new Produto();
+				long id = Integer.parseInt(string);
+				produto.setId(id);
+				produtoDAO.buscaId(produto);
 
-			Compra compra = new Compra(produto, clienteNome, valor, data);
-			new CompraDAO(connection).adiciona(compra);
-		
+				String product = produto.getNome();
+				String clienteNome = request.getParameter("cliente");
+				double valor = produto.getPreco();
+
+				// Fazendo a Conversão da Data
+				String dataEmTexto = request.getParameter("data");
+				Calendar data = null;
+
+				Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
+				data = Calendar.getInstance();
+				data.setTime(date);
+
+				Compra compra = new Compra(product, numero, clienteNome, valor, data);
+				compraDAO.adiciona(compra);
+			}
+
 			request.setAttribute("tipo", "Compra");
-			request.setAttribute("nome", request.getParameter("id"));
+			request.setAttribute("nome", numero);
 			request.setAttribute("mensagem", "adicionada com sucesso");
 			request.setAttribute("retorna", "Compra");
 			request.getRequestDispatcher("WEB-INF/views/painel-admin/sucesso.jsp").forward(request, response);
-			
+
 		} catch (Exception e) {
 			request.setAttribute("erro", "Compra inválida");
 			doGet(request, response);
