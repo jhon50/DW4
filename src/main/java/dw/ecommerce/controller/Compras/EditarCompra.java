@@ -37,17 +37,17 @@ public class EditarCompra extends HttpServlet {
 
 		
 		long id = Integer.parseInt(request.getParameter("id"));
-		Compra compra = new Compra(id);
 		CompraDAO compraDAO = new CompraDAO(connection);
 		
 		List<Produto> produtos = new ProdutoDAO(connection).getLista();
 		List<Cliente> clientes = new ClienteDAO(connection).getLista();
+		List<Compra> compras = compraDAO.getID(id);
+		
 		
 		request.setAttribute("produtos", produtos);
 		request.setAttribute("clientes", clientes);
+		request.setAttribute("compras", compras);
 		
-		compraDAO.getID(compra);
-		request.setAttribute("compra", compra);
 
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/editar.jsp").forward(request, response);
 
@@ -61,10 +61,8 @@ public class EditarCompra extends HttpServlet {
 
 		try {
 
-			long id = Integer.parseInt(request.getParameter("id"));
-			String produto = request.getParameter("produto");
+			int numero = Integer.parseInt(request.getParameter("id"));
 			String clienteNome = request.getParameter("cliente");
-			Double valor = Double.parseDouble(request.getParameter("valor"));
 			//Fazendo a Conversão da Data
 			String dataEmTexto = request.getParameter("data");
 			Calendar data = null;
@@ -73,7 +71,9 @@ public class EditarCompra extends HttpServlet {
 			data = Calendar.getInstance();
 			data.setTime(date);
 
-			Compra compra = new Compra(id, produto, clienteNome, valor, data);
+			Compra compra = new Compra(numero, clienteNome, data);
+			
+			
 			
 			if (Compra.valida(compra)) {
 

@@ -2,6 +2,7 @@ package dw.ecommerce.controller.Compras;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,12 +29,12 @@ public class VisualizarCompra extends HttpServlet {
 
 		long id = Integer.parseInt(request.getParameter("id"));
 		
-		Compra compra = new Compra(id);
 		CompraDAO compraDAO = new CompraDAO(connection);
 
 		try {
-			compraDAO.getID(compra);
-			request.setAttribute("compra", compra);
+			List<Compra> compras = compraDAO.getID(id);
+			request.setAttribute("compras", compras);
+			
 			request.getRequestDispatcher("WEB-INF/views/painel-admin/compra/visualizar.jsp").forward(request, response);
 
 		} catch (Exception e) {

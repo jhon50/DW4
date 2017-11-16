@@ -52,9 +52,7 @@ public class IncluirCompra extends HttpServlet {
 			CompraDAO compraDAO = new CompraDAO(connection);
 			
 			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
-			
-			List<Produto> produtos = null;
-			
+						
 			String[] p = request.getParameterValues("produto");
 			int numero = compraDAO.getNumero() + 1;
 			

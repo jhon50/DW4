@@ -29,9 +29,9 @@
 					<td><fmt:formatNumber value="${compra.valor}" type="currency"/></td>
 					<td><fmt:formatDate value="${compra.data.time}" pattern="dd/MM/yyyy"/></td>
 					<td class="action-buttons">
-					<a class="button button-small" href="VisualizarCompra?id=${compra.id}">Visualizar</a>
-					<a class="button button-small" href="EditarCompra?id=${compra.id}">Editar</a>
-					<a class="button button-small" href="ExcluirCompra?id=${compra.id}">Excluir</a></td>
+					<a class="button button-small" href="VisualizarCompra?id=${compra.numero}">Visualizar</a>
+					<a class="button button-small" href="EditarCompra?id=${compra.numero}">Editar</a>
+					<a class="button button-small" href="ExcluirCompra?id=${compra.numero}">Excluir</a></td>
 				</tr>
 			</c:forEach>
 		</table>

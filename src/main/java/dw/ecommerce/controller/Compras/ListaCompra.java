@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.dao.CompraDAO;
-import dw.ecommerce.modelo.Administrador;
 import dw.ecommerce.modelo.Compra;
 
 @WebServlet("/Compra")

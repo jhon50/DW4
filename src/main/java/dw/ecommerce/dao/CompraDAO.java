@@ -19,11 +19,6 @@ public class CompraDAO {
 
 	private Connection connection;
 
-	private String produto;
-	private String clienteNome;
-	private Double valor;
-	private Calendar data;
-
 	public CompraDAO(Connection connection) {
 		this.connection = connection;
 	}
@@ -52,16 +47,14 @@ public class CompraDAO {
 
 	public void atualiza(Compra compra) {
 
-		String sql = "update compras set produto=?, numero=?, cliente=?, valor=?, data=? where id=?";
+		String sql = "update compras set cliente=?, data=? where numero=?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, compra.getProduto());
-			stmt.setString(2, compra.getClienteNome());
-			stmt.setDouble(3, compra.getValor());
-			stmt.setDate(4, new Date(compra.getData().getTimeInMillis()));
-			stmt.setLong(5, compra.getId());
+			stmt.setString(1, compra.getClienteNome());
+			stmt.setDate(2, new Date(compra.getData().getTimeInMillis()));
+			stmt.setLong(3, compra.getNumero());
 
 			stmt.execute();
 			stmt.close();
@@ -74,8 +67,8 @@ public class CompraDAO {
 	public void remove(Compra compra) {
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from compras where id=?");
-			stmt.setLong(1, compra.getId());
+			PreparedStatement stmt = connection.prepareStatement("delete from compras where numero=?");
+			stmt.setLong(1, compra.getNumero());
 
 			stmt.execute();
 			stmt.close();
@@ -119,24 +112,33 @@ public class CompraDAO {
 		}
 	}
 
-	public Compra getID(Compra compra) {
+	public List<Compra> getID(Long numero) {
 		try {
-			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM compras WHERE ID = ? ");
-			sql.setFloat(1, compra.getId());
+			List<Compra> compras = new ArrayList<Compra>();
+			PreparedStatement sql = this.connection.prepareStatement("SELECT * FROM compras WHERE numero = ? ");
+			sql.setFloat(1, numero);
 			ResultSet rs = sql.executeQuery();
 			if (rs != null) {
 				while (rs.next()) {
 
+					Compra compra = new Compra();
+					
 					compra.setClienteNome(rs.getString("cliente"));
+					compra.setNumero(rs.getInt("numero"));
 					compra.setProduto(rs.getString("produto"));
 					compra.setValor(rs.getDouble("valor"));
 					Calendar data = Calendar.getInstance();
 					data.setTime(rs.getDate("data"));
 					compra.setData(data);
+					
+					compras.add(compra);
 
 				}
 			}
-			return compra;
+			
+			rs.close();
+			sql.close();
+			return compras;
 
 		} catch (Exception e) {
 			throw new RuntimeException();

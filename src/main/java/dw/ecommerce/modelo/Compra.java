@@ -23,8 +23,8 @@ public class Compra {
     public Compra(){
     	
     }
-    public Compra(long id) {
-		this.id = id;
+    public Compra(int id) {
+		this.numero = id;
 	}
 
 	
@@ -40,6 +40,11 @@ public class Compra {
 		this.numero = numero;
 		this.clienteNome = clienteNome;
 		this.valor = valor;
+		this.data = data;
+	}
+	public Compra(int numero, String clienteNome ,Calendar data) {
+		this.numero = numero;
+		this.clienteNome = clienteNome;
 		this.data = data;
 	}
 	public Long getId() {
@@ -87,11 +92,9 @@ public class Compra {
     }
 	public static boolean valida(Compra compra) {
 		String cliente = compra.getClienteNome();
-		String produto = compra.getProduto();
 		Calendar data = compra.getData();
-		Double valor = compra.getValor();
 		
-		if ((cliente.isEmpty()) || (produto.isEmpty()) || (data == null) || (valor.isNaN())) {
+		if ((cliente.isEmpty()) || (data == null)) {
 			return true;
 		}
 		return false;

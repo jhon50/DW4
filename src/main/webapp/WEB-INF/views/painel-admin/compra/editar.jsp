@@ -12,37 +12,22 @@
 	<div class="container">
 		<h1>Editar compra</h1>
 		<form action="EditarCompra" method="post">
-			<input type="hidden" id="id" name="id" value="${compra.id}" />
-			
-			<div class="row">
-				<label for="produto">Produto:</label>
-				<select id="produto" name="produto">
-					<option>${compra.produto}</option>
-					<c:forEach var="produto" items="${produtos}">
-						<option>${produto.nome}</option>
-					</c:forEach>
-				</select> <br /> <span id="aviso_produto"></span>
-			</div>
-			
+			<input type="hidden" id="id" name="id" value="${compras[0].numero}" />
+						
 			<div class="row">
 				<label for="cliente">Cliente:</label>
 				<select id="cliente" name="cliente">
-					<option>${compra.clienteNome}</option>
+					<option>${compras[0].clienteNome}</option>
 					<c:forEach var="cliente" items="${clientes}">
 						<option>${cliente.nome}</option>
 					</c:forEach>
 				</select> <br />
 			</div>
 			
-			<div class="row">
-				<label for="valor">Valor:</label>
-				<input id="valor" name="valor" type="text" value="${compra.valor}" />
-				<br />
-			</div>
 			
 			<div class="row">
 				<label for="data">Data:</label>
-				<input id="data" name="data" type="text" value="<fmt:formatDate value="${compra.data.time}" pattern="dd/MM/yyyy"/>" />
+				<input id="data" name="data" type="text" value="<fmt:formatDate value="${compras[0].data.time}" pattern="dd/MM/yyyy"/>" />
 				<br />
 			</div>
 			
