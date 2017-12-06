@@ -125,4 +125,29 @@ public class AdministradorDAO {
 		}
 	}
 
+	public Administrador login(String email, String senha) {
+		Administrador admin = null;
+
+		try {
+			PreparedStatement sql = this.connection
+					.prepareStatement("SELECT * from administradores WHERE EMAIL = ? AND SENHA = ?");
+			sql.setString(1, email);
+			sql.setString(2, senha);
+			ResultSet rs = sql.executeQuery();
+
+			if (rs != null) {
+				while (rs.next()) {
+					admin.setNome(rs.getString("email"));
+					admin.setEmail(rs.getString("email"));
+				}
+			}
+			return admin;
+
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+
+
+	}
+
 }

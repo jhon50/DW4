@@ -10,22 +10,26 @@
 <body>
 	<header>
 		LOJA DW
-		<a href="Painel">Área Restrita</a>
-		<img alt="Carrinho de Compras" src="<c:url value="/img/carrinho.jpg"/>">
-		<br />
+		<a href="Login">Área Restrita</a>
+		<a href="Carrinho">Meu Carrinho</a>
 	</header>
+	<br />
+	<br />
 	<nav>
 		<c:forEach var="categoria" items="${categorias}">
 			<a href="?Categoria=${categoria.nome}">${categoria.nome}</a> | 		
 	</c:forEach>
 	</nav>
 	<br />
+	<br />
 	<div>
-		<form action=""  method="post">
+		<form action="" method="post">
 			<input type="text" id="nome" name="nome" />
 			<input type="submit" value="Pesquisar" />
 		</form>
 	</div>
+	<br />
+	<br />
 	<div>
 		<table>
 			<tr>
