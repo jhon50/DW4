@@ -47,7 +47,7 @@ public class ExcluirAdmin extends HttpServlet {
 			throws ServletException, IOException {
 
 		Connection connection = (Connection) request.getAttribute("conexao");
-		int id = Integer.parseInt(request.getParameter("id"));
+		Long id = (long) Integer.parseInt(request.getParameter("id"));
 
 		Administrador administrador = new Administrador(id);
 		try {

@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>LojaDW</display-name>
-  <servlet>
-    <description></description>
-    <display-name>CategoriaServlet</display-name>
-    <servlet-name>CategoriaServlet</servlet-name>
-    <servlet-class>dw.ecommerce.controller.CategoriaServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description></description>
-    <display-name>AdminServlet</display-name>
-    <servlet-name>AdminServlet</servlet-name>
-    <servlet-class>dw.ecommerce.controller.AdminServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CategoriaServlet</servlet-name>
-    <url-pattern>/CategoriaServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AdminServlet</servlet-name>
-    <url-pattern>/AdminServlet</url-pattern>
-  </servlet-mapping>
+  
 </web-app>

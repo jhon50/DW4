@@ -16,7 +16,25 @@ public class Administrador {
     private String email;
     private String senha;
 
-    public String getNome() {
+    public Administrador() {
+    	
+    }
+    
+    
+    public Administrador(Long id) {
+		this.id = id;
+	}
+    
+    
+
+	public Administrador(Long id, String nome, String email, String senha) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+	}
+
+	public String getNome() {
         return nome;
     }
 
@@ -47,6 +65,15 @@ public class Administrador {
     public void setId(Long id) {
         this.id = id;
     }
+
+
+	public static boolean valida(Administrador administrador) {
+
+		if(administrador.getNome().isEmpty() || administrador.getEmail().isEmpty() || administrador.getSenha().isEmpty()) {
+			return true;
+		}
+		return false;
+	}
 
     
     

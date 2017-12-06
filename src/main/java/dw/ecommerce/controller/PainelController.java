@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
-public class Controller extends HttpServlet {
+@WebServlet("/Painel")
+public class PainelController extends HttpServlet {
 
 	/**
 	 * 
@@ -19,6 +19,8 @@ public class Controller extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+
 		request.getRequestDispatcher("WEB-INF/views/painel-admin/index.jsp").forward(request, response);
 		
 	}
