@@ -40,7 +40,6 @@ public class FiltroLogin implements Filter {
 		
 		Administrador admin = (Administrador) session.getAttribute("usuarioLogado");
 		if(admin == null) {			
-			System.err.println("Área Restrita");
 			httpServletRequest.getRequestDispatcher("/Login").forward(request, response);
 		}else {
 			chain.doFilter(request, response);

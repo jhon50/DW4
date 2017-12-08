@@ -2,11 +2,8 @@ package dw.ecommerce.controller.Carrinho;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,6 +19,11 @@ import dw.ecommerce.modelo.Produto;
 
 @WebServlet("/FinalizaCompra")
 public class FinalizaCompra extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
