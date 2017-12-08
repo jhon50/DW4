@@ -37,6 +37,10 @@
 				<td>Total: <fmt:formatNumber value="${total}" type="currency" /></td>
 			</tr>
 		</table>
+		<br/>
+		<a href="FinalizaCompra">Finalizar Comprar</a>
+		<br/>
+		<a href="/LojaDW">Retornar as Compras</a>
 	</div>
 </body>
 </html>
