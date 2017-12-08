@@ -18,15 +18,17 @@
 	<header>
 		LOJA DW
 		<a href="Login">Área Restrita</a>
+		<br/>
 		<a href="Carrinho">Meu Carrinho</a>
 	</header>
 	<br />
 	<br />
-	<nav>
+		<ul>
 		<c:forEach var="categoria" items="${categorias}">
-			<a href="?Categoria=${categoria.nome}">${categoria.nome}</a> | 		
+			<li><a href="?Categoria=${categoria.nome}">${categoria.nome}</a></li>		
 	</c:forEach>
-	</nav>
+		</ul>
+	
 	<br />
 	<br />
 	<div>

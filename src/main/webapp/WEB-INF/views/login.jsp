@@ -10,6 +10,7 @@
 	<form action"Login" method="post">
 		<label for="nome">Email: </labeL>
 		<input type="text" id="email" name="email" />
+		<br/>
 		<label for="senha">Senha: </label>
 		<input type="password" id="senha" name="senha" />
 		<input type="submit" value="Entrar" />
