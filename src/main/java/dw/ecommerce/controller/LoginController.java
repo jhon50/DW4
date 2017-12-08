@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dw.ecommerce.dao.AdministradorDAO;
 import dw.ecommerce.modelo.Administrador;
@@ -24,7 +26,14 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		
+		Administrador admin = (Administrador) session.getAttribute("usuarioLogado");
+		if(admin == null) {			
+			request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
+		}else {
+			request.getRequestDispatcher("WEB-INF/views/painel-admin/index.jsp").forward(request, response);
+		}
 
 	}
 
@@ -39,15 +48,17 @@ public class LoginController extends HttpServlet {
 
 		AdministradorDAO administradorDAO = new AdministradorDAO(connection);
 
-		Administrador login = administradorDAO.login(email, senha);
+		Administrador admin = administradorDAO.login(email, senha);
 		
-		if (login != null) {
+		if (admin != null) {
 			System.out.println("Login efetuado com sucesso!");
+			request.getSession().setAttribute("usuarioLogado", admin);
+			request.getRequestDispatcher("/Painel").forward(request, response);
 		} else {
 			System.err.println("Administrador inválido");
+			response.sendRedirect("Login");
 		}
 
-		request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
 
 	}
 }

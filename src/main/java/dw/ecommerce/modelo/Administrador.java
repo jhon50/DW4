@@ -34,6 +34,12 @@ public class Administrador {
 		this.senha = senha;
 	}
 
+	public Administrador(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
+	}
+
+
 	public String getNome() {
         return nome;
     }

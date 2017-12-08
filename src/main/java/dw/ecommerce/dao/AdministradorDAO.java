@@ -118,6 +118,8 @@ public class AdministradorDAO {
 					admin.setSenha(rs.getString("senha"));
 				}
 			}
+			rs.close();
+			sql.close();
 			return admin;
 
 		} catch (Exception e) {
@@ -126,27 +128,38 @@ public class AdministradorDAO {
 	}
 
 	public Administrador login(String email, String senha) {
-		Administrador admin = null;
 
 		try {
-			PreparedStatement sql = this.connection
-					.prepareStatement("SELECT * from administradores WHERE EMAIL = ? AND SENHA = ?");
-			sql.setString(1, email);
-			sql.setString(2, senha);
-			ResultSet rs = sql.executeQuery();
+			List<Administrador> administradores = new ArrayList<Administrador>();
+			PreparedStatement stmt;
+			stmt = this.connection.prepareStatement("select * from administradores order by nome");
+			ResultSet rs = stmt.executeQuery();
 
-			if (rs != null) {
-				while (rs.next()) {
-					admin.setNome(rs.getString("email"));
-					admin.setEmail(rs.getString("email"));
+			while (rs.next()) {
+				// criando o objeto Categoria
+
+				Administrador administrador = new Administrador();
+				administrador.setId(rs.getLong("id"));
+				administrador.setNome(rs.getString("nome"));
+				administrador.setEmail(rs.getString("email"));
+				administrador.setSenha(rs.getString("senha"));
+
+				
+				if((administrador.getSenha().equals(senha)) && (administrador.getEmail().equals(email))) {
+					return administrador;					
 				}
+				
+				administradores.add(administrador);
 			}
-			return admin;
 
-		} catch (Exception e) {
-			throw new RuntimeException();
+			rs.close();
+			stmt.close();
+			
+			return null;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-
 
 	}
 

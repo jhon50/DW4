@@ -6,7 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Loja DW</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<script type="text/javascript">
+  function adiciona(id) {
+    $.post("AdicionaCarrinho?Produto=" + id);
+  }
+</script>
 <body>
 	<header>
 		LOJA DW
@@ -43,7 +50,7 @@
 					<td>${produto.nome}</td>
 					<td>${produto.descricao}</td>
 					<td><fmt:formatNumber value="${produto.preco}" type="currency" /></td>
-					<td><a href="">Comprar</a></td>
+					<td><a href="" onclick="adiciona(${produto.id})" >Comprar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
